@@ -1,0 +1,31 @@
+/*
+  Kit de marca ReVuelta
+  Fuente: https://re-vuelta.vercel.app/#kit
+  No modificar valores aquí sin avisar a los otros equipos (afecta a todos los módulos).
+*/
+:root {
+  /* Colores */
+  --ink: #15201b;      /* Texto / secciones oscuras */
+  --pine: #1f5e4a;     /* Primario (front) */
+  --moss: #3e9c7a;     /* Acentos / detalles */
+  --marigold: #f2a03d; /* Énfasis / etiquetas de lote */
+  --clay: #e8643c;     /* CTA / back */
+  --paper: #f6f2e9;    /* Fondo principal */
+  --paper-2: #efe9dc;  /* Fondos secundarios */
+  --line: #ded6c5;     /* Bordes / separadores */
+
+  /* Estados (propuesta, no del kit oficial — ajustar si el diseño define otros) */
+  --success: var(--moss);
+  --warning: var(--marigold);
+  --danger: var(--clay);
+
+  /* Tipografías */
+  --font-display: "Fraunces", serif;       /* Titulares, números grandes */
+  --font-body: "Plus Jakarta Sans", sans-serif; /* Texto, botones, navegación */
+  --font-mono: "Space Mono", monospace;     /* Etiquetas técnicas, datos */
+
+  /* Espaciados base (ajustar según se necesite) */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
