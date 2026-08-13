@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import InformacionProducto from './InformacionProducto';
-import SeccionesProducto from './SeccionesProducto';
-import ProductosRelacionados from './ProductosRelacionados';
-import GaleriaProducto from './GaleriaProducto';
-import { fetchProductById, fetchProducts } from '../services/productService';
+import InformacionProducto from '../../components/paginaDetalleProductos/InformacionProducto';
+import SeccionesProducto from '../../components/paginaDetalleProductos/SeccionesProducto';
+import ProductosRelacionados from '../../components/paginaDetalleProductos/ProductosRelacionados';
+import GaleriaProducto from '../../components/paginaDetalleProductos/GaleriaProducto';
+import { fetchProductById, fetchProducts } from '../../services/productService';
 
 const PaginaDetalleProducto = () => {
   const [producto, setProducto] = useState(null);
@@ -27,15 +27,34 @@ const PaginaDetalleProducto = () => {
   };
 
   useEffect(() => {
-    const path = window.location.pathname || '';
-    const match = path.match(/\/producto\/(\d+)/);
-    const id = match ? Number(match[1]) : 1;
-    (async () => { await loadProducto(id); })();
+    const loadInitial = async () => {
+      const path = window.location.pathname || '';
+      const match = path.match(/\/producto\/(\d+)/);
+      if (match) {
+        const id = Number(match[1]);
+        await loadProducto(id);
+        return;
+      }
+
+      // Si no hay id en la URL, intentamos obtener el primer producto disponible
+      try {
+        const lista = await fetchProducts(1);
+        const first = Array.isArray(lista) && lista.length > 0 ? lista[0] : null;
+        const id = first ? first.id : null;
+        if (id) await loadProducto(id);
+        else setError('No hay productos disponibles para mostrar');
+      } catch (e) {
+        console.error(e);
+        setError('No se pudo cargar el producto');
+      }
+    };
+
+    loadInitial();
 
     const onPop = () => {
       const m = window.location.pathname.match(/\/producto\/(\d+)/);
-      const i = m ? Number(m[1]) : 1;
-      (async () => { await loadProducto(i); })();
+      const i = m ? Number(m[1]) : null;
+      if (i) (async () => { await loadProducto(i); })();
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
