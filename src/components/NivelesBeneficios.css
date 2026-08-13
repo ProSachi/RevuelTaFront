@@ -1,0 +1,256 @@
+.nb-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(21, 32, 27, 0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 16px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.nb-modal {
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(21, 32, 27, 0.28);
+  padding: 28px 28px 24px;
+}
+
+.nb-modal:focus {
+  outline: none;
+}
+
+.nb-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.nb-titulo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.nb-cerrar-x {
+  border: none;
+  background: transparent;
+  color: var(--color-ink);
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: none;
+  transition: background 0.15s ease;
+}
+
+.nb-cerrar-x:hover {
+  background: var(--color-paper-2);
+}
+
+/* --- Tu nivel actual --- */
+
+.nb-nivel-actual {
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-line);
+  border-left: 4px solid var(--color-pine);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 22px;
+}
+
+.nb-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-pine);
+  margin-bottom: 10px;
+}
+
+.nb-nivel-actual-fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nb-nivel-icono {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--color-pine);
+  color: var(--color-paper);
+  display: grid;
+  place-items: center;
+}
+
+.nb-nivel-icono--sm {
+  width: 30px;
+  height: 30px;
+}
+
+.nb-nivel-actual-texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.nb-nivel-nombre {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 2px;
+  color: var(--color-ink);
+}
+
+.nb-nivel-detalle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-ink);
+  opacity: 0.72;
+}
+
+.nb-nivel-puntos {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-pine);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+
+.nb-subtitulo {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  margin: 0 0 10px;
+}
+
+.nb-lista-niveles {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.nb-fila-nivel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-paper);
+}
+
+.nb-fila-nivel:last-child {
+  border-bottom: none;
+}
+
+.nb-fila-nivel--actual {
+  background: rgba(31, 94, 74, 0.08);
+}
+
+.nb-fila-nivel--actual .nb-nivel-icono--sm {
+  background: var(--color-pine);
+  color: var(--color-paper);
+}
+
+.nb-fila-nivel:not(.nb-fila-nivel--actual) .nb-nivel-icono--sm {
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  opacity: 0.55;
+}
+
+.nb-fila-nivel-nombre {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nb-etiqueta-actual {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-paper);
+  background: var(--color-marigold);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.nb-fila-nivel-rango {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-ink);
+  opacity: 0.65;
+}
+
+.nb-lista-beneficios {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nb-fila-beneficio {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  line-height: 1.4;
+}
+
+.nb-beneficio-icono {
+  flex: none;
+  color: var(--color-marigold);
+  margin-top: 2px;
+}
+
+.nb-boton-cerrar {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-pine);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.nb-boton-cerrar:hover {
+  background: var(--color-ink);
+}
+
+@media (max-width: 480px) {
+  .nb-modal {
+    padding: 22px 18px 18px;
+  }
+}
