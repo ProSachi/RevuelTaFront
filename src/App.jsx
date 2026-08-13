@@ -1,120 +1,50 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import { ConnectedUserContext } from './contexts/ConnectedUser.context'
+import ProfileImage from './components/profiles/ProfileImage'
+import profile from './assets/profile.jpeg'
+import Verified from './components/profiles/Verified'
+import ButtonProfileNavigation from './components/profiles/ButtonProfileNavigation'
+import { BsBagCheckFill } from 'react-icons/bs';
+import { HiArrowsRightLeft } from 'react-icons/hi2';
+import { FaExclamationTriangle, FaStar } from 'react-icons/fa';
+import { HiPencil } from 'react-icons/hi2';
+import CardProfileStadistics from './components/profiles/CardProfileStadistics'
+import CardGarments from './components/profiles/CardGarments'
+import Profile from './pages/community/Profile'
 
 function App() {
   const [count, setCount] = useState(0)
+  const { connectedUser, setConnectedUser } = useContext(ConnectedUserContext);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <h1>{connectedUser}</h1>
+      <ProfileImage image={profile} userName='juan' />
+      <div>
+        <Verified isVerified={true} />
+      </div>
+      <div>
+        <ButtonProfileNavigation name='Editar perfil' direction='/perfil/editar' icons={HiPencil} />
+      </div>
+      <div>
+        <CardProfileStadistics icons={BsBagCheckFill} nameStatistic='Ventas' valueStatistic={10} />
+        <CardProfileStadistics icons={HiArrowsRightLeft} nameStatistic='Intercambios' valueStatistic={5} />
+        <CardProfileStadistics icons={FaExclamationTriangle} nameStatistic='Reclamos' valueStatistic={2} />
+        <CardProfileStadistics icons={FaStar} nameStatistic='Calificación' valueStatistic={4.5} />
+      </div>
+      <div>
+        <CardGarments image={profile} title='Camisa de algodón' price='$50.000' size='M' id='1' />
+        <CardGarments image={profile} title='Pantalón de mezclilla' price='$80.000' size='L' id='2' />
+        <CardGarments image={profile} title='Chaqueta de cuero' price='$120.000' size='XL' id='3' />
+      </div>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <div>
+        <Profile />
+      </div>
     </>
   )
 }
