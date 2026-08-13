@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+.superposicion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(21, 32, 27, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.ventana {
+  background-color: #F6F2E9;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #DED6C5;
+  box-sizing: border-box;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #DED6C5;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.titulo {
+  font-family: 'Fraunces', serif;
+  color: #15201B;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.botonCerrar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #15201B;
+  cursor: pointer;
+}
+
+.subtitulo {
+  color: #15201B;
+  font-size: 0.95rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.listaOpciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tarjetaOpcion {
+  background-color: #EFE9DC;
+  border: 1px solid #DED6C5;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.inputRadio {
+  accent-color: #1F5E4A;
+  margin-top: 3px;
+}
+
+.contenidoOpcion {
+  display: flex;
+  flex-direction: column;
+}
+
+.tituloOpcion {
+  font-weight: 600;
+  color: #15201B;
+  font-size: 0.9rem;
+}
+
+.descripcionOpcion {
+  color: #3E9C7A;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.seccionComentario {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.etiqueta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #15201B;
+}
+
+.campoTexto {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #DED6C5;
+  border-radius: 6px;
+  background-color: #F6F2E9;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #15201B;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.campoTexto:focus {
+  outline: 2px solid #3E9C7A;
+}
+
+.textoError {
+  color: #E8643C;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.botonCancelar {
+  background-color: transparent;
+  border: 1px solid #DED6C5;
+  color: #15201B;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+}
+
+.botonEnviar {
+  background-color: #1F5E4A;
+  border: none;
+  color: #F6F2E9;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+}
+
+.botonEnviar:hover {
+  background-color: #3E9C7A;
+}
