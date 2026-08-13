@@ -5,7 +5,7 @@ const InformacionProducto = ({ producto = {}, onAgregarCarrito, onProponerTruequ
   const [tallaSeleccionada, setTallaSeleccionada] = useState(tallasDisponibles[0] || null);
   const [cantidad, setCantidad] = useState(1);
   const [agregadoAlCarrito, setAgregadoAlCarrito] = useState(false);
-  const [estadoTrueque, setEstadoTrueque] = useState(false); // Simula si ya propuso trueque o tiene uno asociado
+  const [estadoTrueque, setEstadoTrueque] = useState(false); 
 
   if (!producto || Object.keys(producto).length === 0) return null;
 

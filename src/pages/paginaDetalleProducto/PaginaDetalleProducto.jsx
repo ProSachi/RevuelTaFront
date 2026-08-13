@@ -36,7 +36,7 @@ const PaginaDetalleProducto = () => {
         return;
       }
 
-      // Si no hay id en la URL, intentamos obtener el primer producto disponible
+      // Si no hay id en la URL, se intenta obtener el primer producto disponible
       try {
         const lista = await fetchProducts(1);
         const first = Array.isArray(lista) && lista.length > 0 ? lista[0] : null;
