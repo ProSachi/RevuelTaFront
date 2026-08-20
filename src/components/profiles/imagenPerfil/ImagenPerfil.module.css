@@ -1,0 +1,66 @@
+.contenedor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  
+  /* Tamaño responsivo por defecto si no se pasa --avatar-size mediante React */
+  --avatar-size-default: 4.5rem; /* ~72px en móvil */
+  
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Imagen cuando el usuario tiene foto */
+.imagen {
+  width: var(--avatar-size, var(--avatar-size-default));
+  height: var(--avatar-size, var(--avatar-size-default));
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #E2E8F0;
+  box-shadow: 0 2px 4px rgba(18, 18, 18, 0.05);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+/* Contenedor del avatar por defecto (sin foto) */
+.avatarFallback {
+  width: var(--avatar-size, var(--avatar-size-default));
+  height: var(--avatar-size, var(--avatar-size-default));
+  border-radius: 50%;
+  background-color: #F1F5F9; /* Fondo suave slate */
+  border: 2px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(18, 18, 18, 0.05);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+/* Icono del avatar con escalado proporcional según el contenedor */
+.iconoAvatar {
+  width: calc(var(--avatar-size, var(--avatar-size-default)) * 0.45);
+  height: calc(var(--avatar-size, var(--avatar-size-default)) * 0.45);
+  color: #1F5E4A; /* Verde de la paleta RevueLTa */
+  flex-shrink: 0;
+}
+
+/* Respuesta visual en pantallas táctiles al interactuar */
+.contenedor:active .imagen,
+.contenedor:active .avatarFallback {
+  transform: scale(0.97);
+}
+
+/* Ajuste para pantallas medianas/escritorio (>= 640px) */
+@media (min-width: 640px) {
+  .contenedor {
+    --avatar-size-default: 6rem; /* 96px completo en pantallas grandes */
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .contenedor:hover .imagen,
+    .contenedor:hover .avatarFallback {
+      box-shadow: 0 4px 8px rgba(18, 18, 18, 0.08);
+    }
+  }
+}

@@ -2,113 +2,15 @@ import FormularioReporteVendedor from "./components/pages/FormularioReportarVend
 import PruebaPaginaReport from "./pages/PruebaPaginaReport";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useContext, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-import { ConnectedUserContext } from './contexts/ConnectedUser.context'
-import ProfileImage from './components/profiles/ProfileImage'
-import profile from './assets/profile.jpeg'
-import Verified from './components/profiles/Verified'
-import ButtonProfileNavigation from './components/profiles/ButtonProfileNavigation'
-import { BsBagCheckFill } from 'react-icons/bs';
-import { HiArrowsRightLeft } from 'react-icons/hi2';
-import { FaExclamationTriangle, FaStar } from 'react-icons/fa';
-import { HiPencil } from 'react-icons/hi2';
-import CardProfileStadistics from './components/profiles/CardProfileStadistics'
-import CardGarments from './components/profiles/CardGarments'
-import Profile from './pages/community/Profile'
+import { ConnectedUserContext } from './context/ConnectedUser.context';
+import Profile from './pages/community/Profile';
 
 function App() {
   const [count, setCount] = useState(0)
   const { connectedUser, setConnectedUser } = useContext(ConnectedUserContext);
 
   return (
-    <BrowserRouter>
-      <header style={{
-        backgroundColor: "var(--color-paper-2)",
-        borderBottom: "1px solid var(--color-line)",
-        padding: "0.85rem 2rem",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between"
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <span style={{
-            fontFamily: "var(--font-heading)",
-            fontSize: "1.5rem",
-            fontWeight: "800",
-            color: "var(--color-pine)",
-            letterSpacing: "-0.02em"
-          }}>
-            ReVuelta
-          </span>
-          <span style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.7rem",
-            backgroundColor: "var(--color-pine)",
-            color: "white",
-            padding: "0.15rem 0.45rem",
-            borderRadius: "var(--radius-sm)"
-          }}>
-            FRONT
-          </span>
-        </div>
-
-        <nav style={{ display: "flex", gap: "1rem" }}>
-          <Link
-            to="/test-reporte"
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "0.875rem",
-              fontWeight: "600",
-              color: "var(--color-ink)",
-              textDecoration: "none",
-              padding: "0.4rem 0.8rem",
-              borderRadius: "var(--radius-sm)",
-              backgroundColor: "rgba(31, 94, 74, 0.08)"
-            }}
-          >
-            Prueba Modal Reporte
-          </Link>
-        </nav>
-      </header>
-
-      <main>
-        <Routes>
-          <Route path="/" element={<PruebaPaginaReport />} />
-          <Route path="/test-reporte" element={<PruebaPaginaReport />} />
-          <Route path="/reportar-vendedor" element={<FormularioReporteVendedor />} />        
-          {/* En el futuro:
-              <Route path="/perfil/:id" element={<PerfilVendedorPage />} />
-          */}
-        </Routes>
-      </main>
-    
-      <h1>{connectedUser}</h1>
-      <ProfileImage image={profile} userName='juan' />
-      <div>
-        <Verified isVerified={true} />
-      </div>
-      <div>
-        <ButtonProfileNavigation name='Editar perfil' direction='/perfil/editar' icons={HiPencil} />
-      </div>
-      <div>
-        <CardProfileStadistics icons={BsBagCheckFill} nameStatistic='Ventas' valueStatistic={10} />
-        <CardProfileStadistics icons={HiArrowsRightLeft} nameStatistic='Intercambios' valueStatistic={5} />
-        <CardProfileStadistics icons={FaExclamationTriangle} nameStatistic='Reclamos' valueStatistic={2} />
-        <CardProfileStadistics icons={FaStar} nameStatistic='Calificación' valueStatistic={4.5} />
-      </div>
-      <div>
-        <CardGarments image={profile} title='Camisa de algodón' price='$50.000' size='M' id='1' />
-        <CardGarments image={profile} title='Pantalón de mezclilla' price='$80.000' size='L' id='2' />
-        <CardGarments image={profile} title='Chaqueta de cuero' price='$120.000' size='XL' id='3' />
-      </div>
-
-      <div>
-        <Profile />
-      </div>
-    </BrowserRouter>
+    <Profile />
   )
 }
 

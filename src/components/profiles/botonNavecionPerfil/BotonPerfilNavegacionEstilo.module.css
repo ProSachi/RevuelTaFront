@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  background-color: var(--bg-base);
+  border: 1px solid #E2E8F0;
+  color: var(--text-base);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Móvil por defecto: mayor padding y área de toque accesible */
+  font-size: 0.8125rem; /* ~13px */
+  font-weight: 600;
+  padding: 0.625rem 1rem; /* ~10px arriba/abajo, 16px lados para touch objetivo */
+  min-height: 2.75rem; /* ~44px altura mínima táctil recomendada */
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(18, 18, 18, 0.04);
+  text-decoration: none;
+  user-select: none;
+  
+  /* Touch target en móviles */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, transform 150ms ease;
+}
+
+/* Solo aplicar :hover en dispositivos que realmente tienen puntero (pantallas desktop/laptop) */
+@media (hover: hover) and (pointer: fine) {
+  .boton:hover {
+    background-color: #F8FAFC;
+    cursor: pointer;
+  }
+}
+
+/* Respuesta inmediata al toque o clic */
+.boton:active {
+  background-color: var(--bg-activo);
+  border-color: var(--bg-activo);
+  color: var(--text-activo);
+  transform: scale(0.96);
+}
+
+.icono {
+  width: 1rem;
+  height: 1rem;
+  color: inherit;
+  flex-shrink: 0;
+  transition: color 200ms ease-in-out;
+}
+
+/* Ajuste para pantallas medianas/escritorio (>= 640px) */
+@media (min-width: 640px) {
+  .boton {
+    font-size: 0.75rem; /* Regresa al tamaño compacto previo */
+    padding: 0.375rem 0.75rem;
+    min-height: auto;
+  }
+
+  .icono {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
