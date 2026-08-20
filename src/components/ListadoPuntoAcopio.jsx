@@ -67,14 +67,6 @@ const ListadoPuntosAcopio = ({
                 })}
             </div>
 
-            <section className="paginacion-container">
-                <button disabled>&lt;</button>
-                <button className="activo">1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>&gt;</button>
-            </section>
-
         </div>
     );
 };

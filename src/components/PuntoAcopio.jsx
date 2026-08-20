@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ListadoPuntosAcopio from "./ListadoPuntosAcopio";
-import "./PuntoAcopio.css";
+import ListadoPuntosAcopio from "./ListadoPuntoAcopio";
+import "../estilos/StylePuntoAcopio.css";
 
 const PuntoAcopio = ({
     isOpen,
