@@ -14,13 +14,26 @@ import ResenasPropias from '../../components/profiles/ResenasPropias/ResenasProp
 import styles from './Profile.module.css';
 
 const Profile = () => {
+    
+    {/* modelo response de usuario
+        {
+          Id : null,
+          Nombre : null,
+          Correo : null,
+          Rol : null,
+          Activo : null,
+          ColorAvatar : null,
+          getFechaRegistro : null
+        }  
+    */}
+
     const { connectedUser } = useContext(ConnectedUserContext);
     const { id } = useParams();
     const [user, setUser] = useState(null);
     const [myProfile, setMyProfile] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [promedio, setPromedio] = useState(4);
+    const [promedio, setPromedio] = useState(0);
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -31,7 +44,7 @@ const Profile = () => {
                     return;
                 }
 
-                const response = await fetch(`http://localhost:3000/api/users/${id}`);
+                const response = await fetch(``);
                 if (!response.ok) throw new Error("Error al obtener el perfil");
                 const data = await response.json();
                 setUser(data);

@@ -4,7 +4,15 @@ const ConnectedUserContext = createContext();
 
 const ConnectedUserProvider = ({ children }) => {
 
-    const [connectedUser, setConnectedUser] = useState(null);
+    const [connectedUser, setConnectedUser] = useState({
+          Id : null,
+          Nombre : null,
+          Correo : null,
+          Rol : null,
+          Activo : null,
+          ColorAvatar : null,
+          getFechaRegistro : null
+        });
 
   return (
     <ConnectedUserContext.Provider value={{ connectedUser, setConnectedUser }}>
