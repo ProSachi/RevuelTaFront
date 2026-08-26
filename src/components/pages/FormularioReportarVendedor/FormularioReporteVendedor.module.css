@@ -1,0 +1,148 @@
+.formularioContenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.seccionTitulo {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 0.25rem;
+}
+
+.subtitulo {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #55635b;
+}
+
+.opcionesLista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.opcionCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opcionCard:hover {
+  border-color: var(--color-moss);
+  background-color: #fbf9f5;
+}
+
+.opcionCardSeleccionada {
+  border-color: var(--color-pine);
+  background-color: #f1f7f4;
+  box-shadow: var(--shadow-sm);
+}
+
+.radioInput {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 2px solid var(--color-line);
+  border-radius: 50%;
+  margin-top: 0.15rem;
+  outline: none;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.radioInput:checked {
+  border-color: var(--color-pine);
+}
+
+.radioInput:checked::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background-color: var(--color-pine);
+}
+
+.opcionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.opcionTitulo {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.opcionDescripcion {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #637069;
+  line-height: 1.35;
+}
+
+.comentarioSeccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.comentarioLabel {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.badgeRequerido {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  color: var(--color-clay);
+  background-color: rgba(232, 100, 60, 0.1);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.textareaComentario {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.9rem;
+  min-height: 90px;
+  resize: vertical;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.textareaComentario:focus {
+  border-color: var(--color-pine);
+  box-shadow: 0 0 0 3px rgba(31, 94, 74, 0.12);
+}
+
+.textareaComentario::placeholder {
+  color: #939d97;
+  font-size: 0.85rem;
+}
