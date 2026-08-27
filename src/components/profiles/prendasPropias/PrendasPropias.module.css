@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+/* Área contenedora principal */
+.seccionTabsAreaContenido {
+  width: 100%;
+  background-color: #EFE9DC; /* Blanco hueso de la paleta RevueLTa */
+  border: 1px solid #E2E8F0;
+  border-radius: 0.875rem;
+  padding: 0.875rem; /* Padding reducido para aprovechar pantalla en móvil */
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 1px 3px rgba(18, 18, 18, 0.03);
+}
+
+/* Grilla de prendas responsiva y fluida */
+.seccionTabsGridPrendas {
+  display: grid;
+  /* En móvil: 1 columna centrada */
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  justify-items: center; /* Centra las tarjetas cuando hay 1 sola columna */
+  align-items: start;
+  width: 100%;
+}
+
+/* Dispositivos pequeños/medianos (móviles horizontales y tablets pequeñas >= 480px) */
+@media (min-width: 480px) {
+  .seccionTabsAreaContenido {
+    padding: 1rem;
+  }
+
+  .seccionTabsGridPrendas {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start; /* Alineación natural a la izquierda desde 2 columnas */
+    gap: 1.125rem;
+  }
+}
+
+/* Tablets grandes y Laptops (>= 768px) */
+@media (min-width: 768px) {
+  .seccionTabsAreaContenido {
+    border-radius: 1rem;
+    padding: 1.25rem;
+  }
+
+  .seccionTabsGridPrendas {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Pantallas grandes y Monitores (>= 1100px) */
+@media (min-width: 1100px) {
+  .seccionTabsGridPrendas {
+    grid-template-columns: repeat(4, 1fr); /* Expande a 4 columnas en pantallas anchas */
+  }
+}

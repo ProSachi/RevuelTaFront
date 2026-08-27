@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600&display=swap');
+
+.contenedorEstrellas {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  user-select: none;
+  
+  /* Permite ajustar la escala global con la variable CSS `--star-size` si se pasa en React */
+  --star-size-default: 1.125rem; /* ~18px en móvil para facilitar lectura y toque */
+  
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.estrellaWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--star-size, var(--star-size-default));
+  height: var(--star-size, var(--star-size-default));
+  flex-shrink: 0;
+  transition: transform 150ms ease;
+}
+
+/* En dispositivos táctiles da mayor respuesta visual al presionar */
+.estrellaWrapper:active {
+  transform: scale(1.15);
+}
+
+/* Estrella inactiva (Fondo gris neutro Slate) */
+.estrellaInactiva {
+  width: 100%;
+  height: 100%;
+  color: #CBD5E1;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Capa de recorte parcial */
+.estrellaParcial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* Evita bloqueos en eventos de puntero */
+}
+
+/* Estrella activa (Naranja/Dorado cálido para calificaciones) */
+.estrellaActiva {
+  width: var(--star-size, var(--star-size-default));
+  height: var(--star-size, var(--star-size-default));
+  color: #F2A03D; /* Tono cálido de acento */
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Texto o valor numérico opcional junto a las estrellas */
+.valorPromedio {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #121212;
+  margin-left: 0.125rem;
+}
+
+/* Ajustes para pantallas medianas/escritorio (>= 640px) */
+@media (min-width: 640px) {
+  .contenedorEstrellas {
+    --star-size-default: 1rem; /* Regresa a 16px compacto en desktop */
+    gap: 0.2rem;
+  }
+
+  .valorPromedio {
+    font-size: 0.75rem;
+  }
+}

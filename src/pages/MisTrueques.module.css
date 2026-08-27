@@ -1,0 +1,73 @@
+.pagina {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0.5rem 0 3rem;
+}
+
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--pine);
+  font-weight: 700;
+}
+
+.titulo {
+  font-size: 2.2rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.subtitulo {
+  margin: 0.35rem 0 0 0;
+  color: #5a5f5a;
+  font-size: 0.95rem;
+}
+
+.contadorResultados {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink);
+}
+
+.aviso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--moss);
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.avisoCerrar {
+  border: none;
+  background: transparent;
+  font-size: 1.15rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0.2rem;
+  line-height: 1;
+}
+
+.avisoCerrar:hover {
+  color: var(--ink);
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Routes, Route, Link } from 'react-router-dom'
 import Carrito from './pages/Carrito.jsx'
 import MisTrueques from './pages/MisTrueques.jsx'
@@ -31,6 +32,13 @@ function App() {
         <Route path="/login" element={<InicioSesion />} />
       </Routes>
     </LayoutTemporal>
+=======
+import InicioSesion from "./pages/InicioSesion"
+
+function App() {
+  return (
+    <InicioSesion />
+>>>>>>> feature/deibyvt
   )
 }
 

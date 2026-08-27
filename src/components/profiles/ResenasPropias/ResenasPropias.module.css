@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+/* Contenedor principal de la sección de reseñas */
+.resenasPropiasContenedor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-sizing: border-box;
+  margin-top: 1.25rem;
+  background-color: #EFE9DC; /* Blanco hueso de la paleta RevueLTa */
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Header/Barra de acciones alineado a la izquierda */
+.resenasPropiasHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #E2E8F0; /* Divisor sutil */
+}
+
+/* Grilla para las tarjetas de reseñas */
+.resenasPropiasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
+  justify-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  align-items: start;
+}
+
+/* Adaptación para pantallas móviles */
+@media (max-width: 640px) {
+  .resenasPropiasContenedor {
+    padding: 0.875rem;
+  }
+
+  .resenasPropiasHeader {
+    justify-content: flex-start;
+  }
+
+  .resenasPropiasGrid {
+    grid-template-columns: 1fr;
+  }
+}
