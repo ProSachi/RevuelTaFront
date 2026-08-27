@@ -78,12 +78,17 @@ export default function FormularioInicioSesion({ onInicioExitoso }) {
   return (
     <div className={styles.tarjeta}>
       {errorGlobal && (
-        <div className={styles.alertaErrorGlobal} role="alert">
+        <div className={styles.alertaErrorGlobal} role="alert" aria-live="polite">
           {errorGlobal}
         </div>
       )}
 
-      <form className={styles.formulario} onSubmit={handleSubmit} noValidate>
+      <form
+        className={styles.formulario}
+        onSubmit={handleSubmit}
+        noValidate
+        aria-busy={enviando}
+      >
         <div className={styles.campo}>
           <label htmlFor="correo" className={styles.label}>
             Correo
