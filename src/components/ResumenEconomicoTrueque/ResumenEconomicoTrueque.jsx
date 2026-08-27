@@ -1,4 +1,4 @@
-import { formatearMoneda } from '../utils/formatoMoneda'
+import { formatearMoneda } from '../../utils/formatoMoneda'
 import './ResumenEconomicoTrueque.css'
 
 const FilaResumen = ({ etiqueta, valor }) => (

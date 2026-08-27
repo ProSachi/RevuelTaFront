@@ -1,4 +1,4 @@
-import { formatearMoneda } from '../utils/formatoMoneda'
+import { formatearMoneda } from '../../utils/formatoMoneda'
 import './InformacionEntregaTrueque.css'
 
 const BloqueEntrega = ({ titulo, entrega }) => (

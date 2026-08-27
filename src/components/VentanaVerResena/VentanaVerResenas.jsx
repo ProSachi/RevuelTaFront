@@ -1,5 +1,5 @@
-import { obtenerVendedoresPedido } from '../data/vendedores'
-import { obtenerResenasPedido } from '../data/resenas'
+import { obtenerVendedoresPedido } from '../../data/vendedores'
+import { obtenerResenasPedido } from '../../data/resenas'
 import './VentanaVerResenas.css'
 
 const VentanaVerResenas = ({ pedidoId, onCerrar }) => {

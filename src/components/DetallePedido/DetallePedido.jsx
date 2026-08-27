@@ -1,7 +1,7 @@
-import { obtenerPedidoPorId } from '../data/pedidosTrueque'
-import ResumenPedidoTrueque from './ResumenPedidoTrueque'
-import InformacionEntregaTrueque from './InformacionEntregaTrueque'
-import ResumenEconomicoTrueque from './ResumenEconomicoTrueque'
+import { obtenerPedidoPorId } from '../../data/pedidosTrueque'
+import ResumenPedidoTrueque from '../ResumenPedidoTrueque'
+import InformacionEntregaTrueque from '../InformacionEntregaTrueque'
+import ResumenEconomicoTrueque from '../ResumenEconomicoTrueque'
 import './DetallePedido.css'
 
 const DetallePedido = ({ pedidoId, onVolver, onRastrearEnvio }) => {

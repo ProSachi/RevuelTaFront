@@ -1,0 +1,56 @@
+.iet-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .iet-container {
+    flex-direction: row;
+  }
+}
+
+.iet-card {
+  flex: 1;
+  border-radius: 1rem;
+  border: 1px solid var(--color-line, #e2e2e2);
+  background-color: var(--color-paper, #ffffff);
+  padding: 1.5rem;
+}
+
+.iet-card-title {
+  margin: 0 0 1rem 0;
+  font-family: var(--font-display, inherit);
+  font-size: 1.125rem;
+  color: var(--color-ink, #1e1e1e);
+}
+
+.iet-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.iet-item {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.iet-icon {
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.5);
+}
+
+.iet-item-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-ink, #1e1e1e);
+}
+
+.iet-item-desc {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.6);
+}

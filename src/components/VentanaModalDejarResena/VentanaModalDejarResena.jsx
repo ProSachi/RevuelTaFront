@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { obtenerVendedoresPedido } from '../data/vendedores'
-import { crearResena, obtenerVendedoresResenados } from '../data/resenas'
+import { obtenerVendedoresPedido } from '../../data/vendedores'
+import { crearResena, obtenerVendedoresResenados } from '../../data/resenas'
 import './VentanaModalDejarResena.css'
 
 const VentanaModalDejarResena = ({ pedidoId, onCerrar, onFlujoFinalizado }) => {
