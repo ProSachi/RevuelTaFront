@@ -99,6 +99,8 @@ export default function FormularioInicioSesion({ onInicioExitoso }) {
               placeholder="Ingresa tu correo electrónico"
               className={`${styles.input} ${errores.correo ? styles.inputError : ''}`}
               value={correo}
+              aria-invalid={Boolean(errores.correo)}
+              aria-describedby={errores.correo ? 'correo-error' : undefined}
               onChange={(e) => {
                 setCorreo(e.target.value)
                 if (errores.correo) setErrores((prev) => ({ ...prev, correo: null }))
@@ -107,7 +109,11 @@ export default function FormularioInicioSesion({ onInicioExitoso }) {
               disabled={enviando}
             />
           </div>
-          {errores.correo && <span className={styles.errorTexto}>{errores.correo}</span>}
+          {errores.correo && (
+            <span id="correo-error" className={styles.errorTexto}>
+              {errores.correo}
+            </span>
+          )}
         </div>
 
         <div className={styles.campo}>
@@ -125,6 +131,8 @@ export default function FormularioInicioSesion({ onInicioExitoso }) {
               placeholder="••••••••••"
               className={`${styles.input} ${errores.contrasena ? styles.inputError : ''}`}
               value={contrasena}
+              aria-invalid={Boolean(errores.contrasena)}
+              aria-describedby={errores.contrasena ? 'contrasena-error' : undefined}
               onChange={(e) => {
                 setContrasena(e.target.value)
                 if (errores.contrasena) setErrores((prev) => ({ ...prev, contrasena: null }))
@@ -133,7 +141,11 @@ export default function FormularioInicioSesion({ onInicioExitoso }) {
               disabled={enviando}
             />
           </div>
-          {errores.contrasena && <span className={styles.errorTexto}>{errores.contrasena}</span>}
+          {errores.contrasena && (
+            <span id="contrasena-error" className={styles.errorTexto}>
+              {errores.contrasena}
+            </span>
+          )}
         </div>
 
         <div className={styles.filaOpciones}>
