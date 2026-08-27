@@ -57,6 +57,12 @@ function ProductModal({ product, isOpen, onClose, onProposeTrade }) {
               {product.cantidadDisponible ?? 0}
             </span>
           </div>
+          <div className="product-modal__detail product-modal__detail--lote">
+            <span className="product-modal__detail-label">Lote</span>
+            <span className="product-modal__detail-value product-modal__lote">
+              {product.lote || "—"}
+            </span>
+          </div>
         </div>
 
         {product.truequesDeInteres?.length > 0 && (

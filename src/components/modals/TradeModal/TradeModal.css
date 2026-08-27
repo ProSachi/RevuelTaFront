@@ -11,10 +11,10 @@
 
 .trade-modal {
   position: relative;
-  background: var(--bg);
+  background: var(--bg-soft);
   color: var(--text);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 16px;
   width: 100%;
   max-width: 560px;
   max-height: 90vh;
@@ -56,7 +56,7 @@
 
 .trade-modal__close:hover {
   background: var(--accent-bg);
-  color: var(--accent);
+  color: var(--accent-bright);
 }
 
 .trade-modal__header {
@@ -78,8 +78,8 @@
 
 .trade-modal__title {
   font-family: var(--heading);
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 800;
+  font-size: 22px;
   margin: 0 0 4px;
   color: var(--text-h);
 }
@@ -90,7 +90,7 @@
 }
 
 .trade-modal__subtitle strong {
-  color: var(--accent);
+  color: var(--accent-bright);
 }
 
 .trade-modal__empty {
@@ -110,7 +110,7 @@
 
 .trade-modal__garment {
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 8px;
   background: var(--bg);
   text-align: center;
@@ -124,8 +124,9 @@
 }
 
 .trade-modal__garment--selected {
-  border-color: var(--accent);
+  border-color: var(--accent-bright);
   background: var(--accent-bg);
+  box-shadow: 0 0 0 2px var(--accent-bg);
 }
 
 .trade-modal__garment img {
@@ -139,14 +140,15 @@
 
 .trade-modal__garment-name {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
   margin-bottom: 4px;
 }
 
 .trade-modal__garment-price {
   font-size: 12px;
-  color: var(--text);
+  font-family: var(--mono);
+  color: var(--accent-bright);
   margin: 0;
 }
 
@@ -160,7 +162,8 @@
   padding: 10px 18px;
   font-size: 15px;
   font-weight: 600;
-  border-radius: 8px;
+  font-family: var(--sans);
+  border-radius: 10px;
   cursor: pointer;
   border: 1px solid var(--border);
   background: var(--bg);
@@ -169,8 +172,8 @@
 }
 
 .trade-modal__btn--primary {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-cta);
+  border-color: var(--accent-cta);
   color: #fff;
 }
 

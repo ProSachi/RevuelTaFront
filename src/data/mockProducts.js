@@ -6,5 +6,6 @@ export const mockProducts = [
     precio: 80000,
     tallas: ["S", "M", "L"],
     cantidadDisponible: 4,
+    lote: "LTE-2026-0842",
   },
 ];
