@@ -1,6 +1,6 @@
 import { useState } from "react";
-import VentanaModalEditarPerfil from "../../components/pages/Perfil/VentanaModalEditarPerfil/VentanaModalEditarPerfil";
-import VentanaModalEditarPrendaPublicada from "../../components/pages/Perfil/VentanaModalEditarPrendaPublicada/VentanaModalEditarPrendaPublicada";
+import VentanaModalEditarPerfil from "./VentanaModalEditarPerfil/VentanaModalEditarPerfil";
+import VentanaModalEditarPrendaPublicada from "./VentanaModalEditarPrendaPublicada/VentanaModalEditarPrendaPublicada";
 import estilos from "./Perfil.module.css";
 
 const imagenesDemo = [

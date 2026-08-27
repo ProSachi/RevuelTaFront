@@ -1,5 +1,5 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
-import { validarContrasenaActual } from "../../../../services/perfilService";
+import { validarContrasenaActual } from "../../../services/perfilService";
 import estilos from "./FormularioEditarPerfil.module.css";
 
 const FormularioEditarPerfil = forwardRef(function FormularioEditarPerfil(

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import FormularioEditarPerfil from "../FormularioEditarPerfil/FormularioEditarPerfil";
-import { actualizarPerfil } from "../../../../services/perfilService";
+import { actualizarPerfil } from "../../../services/perfilService";
 import estilos from "./VentanaModalEditarPerfil.module.css";
 
 export default function VentanaModalEditarPerfil({

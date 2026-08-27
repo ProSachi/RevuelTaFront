@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import GaleriaImagenesPrenda from "../GaleriaImagenesPrenda/GaleriaImagenesPrenda";
 import FormularioEditarPrenda from "../FormularioEditarPrenda/FormularioEditarPrenda";
-import { actualizarPrenda } from "../../../../services/prendaService";
+import { actualizarPrenda } from "../../../services/prendaService";
 import estilos from "./VentanaModalEditarPrendaPublicada.module.css";
 
 export default function VentanaModalEditarPrendaPublicada({ prendaOriginal, onCerrar, onConfirmar }) {
