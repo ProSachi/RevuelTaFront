@@ -12,6 +12,8 @@ import AccionesPuntos from './AccionesPuntos/AccionesPuntos';
 import VentanaModalNivelesBeneficios from './modales/VentanaModalNivelesBeneficios';
 import VentanaModalConfirmarCanje from './modales/VentanaModalConfirmarCanje';
 import VentanaModalCampanas from './modales/VentanaModalCampanas';
+import VentanaModalOfertaDestacada from './modales/VentanaModalOfertaDestacada';
+import VentanaModalHistorialPuntos from './modales/VentanaModalHistorialPuntos';
 
 import { puntosUsuario as puntosUsuarioMock } from '../../data/puntosMock';
 import { nivelesPrograma } from '../../data/nivelesMock';
@@ -28,9 +30,9 @@ const DescuentosCampanas = () => {
   const [modalActiva, setModalActiva] = useState(null); 
   const [descuentoSeleccionado, setDescuentoSeleccionado] = useState(null);
 
-  const handleVerHistorial = () => console.log('Pendiente MER-DC06: VentanaModalHistorialPuntos');
+  const handleVerHistorial = () => setModalActiva('historial');
   const handleVerTodasCampanas = () => setModalActiva('campanas');
-  const handleVerOfertas = () => console.log('Pendiente MER-DC05: VentanaModalOfertaDestacada');
+  const handleVerOfertas = () => setModalActiva('oferta');
 
   const handleVerNiveles = () => {
     setModalActiva('niveles');
@@ -145,6 +147,21 @@ const DescuentosCampanas = () => {
       
       {modalActiva === 'campanas' && (
         <VentanaModalCampanas onCerrar={handleCerrarModal} />
+      )}
+
+      {modalActiva === 'oferta' && (
+        <VentanaModalOfertaDestacada
+          oferta={ofertaDestacada}
+          onCerrar={handleCerrarModal}
+          onSeleccionarCanje={handleSeleccionarCanje}
+        />
+      )}
+
+      {modalActiva === 'historial' && (
+        <VentanaModalHistorialPuntos
+          saldoActual={puntosUsuario.saldoActual}
+          onCerrar={handleCerrarModal}
+        />
       )}
     </div>
   );
