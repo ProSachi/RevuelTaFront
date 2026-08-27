@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ConnectedUserContext } from '../../context/ConnectedUser.context';
 import ImagenPerfil from '../../components/profiles/imagenPerfil/ImagenPerfil';
 import Verificado from '../../components/profiles/verificacion/Verificado';
 import { MdEdit } from "react-icons/md";
-import { FaStar, FaExclamationTriangle, FaShoppingBag } from "react-icons/fa";
+import { FaStar, FaExclamationTriangle, FaShoppingBag, FaUser, FaUserCircle } from "react-icons/fa";
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import BotonPerfilNavegacion from '../../components/profiles/botonNavecionPerfil/BotonPerfilNavegacion';
 import TarjetaEstadisticaPerfil from '../../components/profiles/tarjetaEstadisticaPerfil/TarjetaEstadisticaPerfil';
@@ -12,42 +11,78 @@ import CalificacionEstrellas from '../../components/profiles/estrellasCalificaci
 import PrendasPropias from '../../components/profiles/prendasPropias/PrendasPropias';
 import ResenasPropias from '../../components/profiles/ResenasPropias/ResenasPropias';
 import styles from './Profile.module.css';
+import { useConnectedUser } from '../../context/ConnectedUser.context';
+import { userServices } from '../../services/userServices/userServices';
+import { ratingServices } from '../../services/ratingServices/ratingServices';
+import { orderServices } from '../../services/OrderServices/orderServices';
+import { exchangeServices } from '../../services/exchangeServices/exchangeServices';
+import { reportServices } from '../../services/reportServices/resportServices';
 
 const Profile = () => {
-    
+
     {/* modelo response de usuario
         {
           Id : null,
-          Nombre : null,
-          Correo : null,
-          Rol : null,
-          Activo : null,
-          ColorAvatar : null,
-          getFechaRegistro : null
+          nombre : null,
+          correo : null,
+          rol : null,
+          activo : null,
+          color_avatar : null,
+          fecha_registro : null
         }  
     */}
 
-    const { connectedUser } = useContext(ConnectedUserContext);
     const { id } = useParams();
-    const [user, setUser] = useState(null);
+    const { connectedUser } = useConnectedUser;
     const [myProfile, setMyProfile] = useState(false);
+    const [otherProfile, setOtherProfile] = useState({});
+    const [ratings, setRatings] = useState({});
+    const [orders, setOrders] = useState({});
+    const [exchange, setExchange] = useState({});
+    const [report, setReport] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [promedio, setPromedio] = useState(0);
+    const [average, setAverage] = useState(0);
+    const [verified, setVerified] = useState(false);
 
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
                 if (connectedUser?.id === String(id)) {
-                    setUser(connectedUser);
                     setMyProfile(true);
-                    return;
+                    setVerified(connectedUser.activo)
+                } else {
+                    const data = await userServices.getById(id);
+                    setOtherProfile(data);
+                    setVerified(otherProfile.activo)
                 }
 
-                const response = await fetch(``);
-                if (!response.ok) throw new Error("Error al obtener el perfil");
-                const data = await response.json();
-                setUser(data);
+                const response = await ratingServices.getAllRatingsForUserId(id);
+                const ratings = response.data;
+
+                if (ratings && ratings.length > 0) {
+
+                    const totalPuntaje = ratings.reduce((acumulado, rating) => acumulado + rating.puntaje, 0);
+
+                    const promedioCalculado = totalPuntaje / ratings.length;
+
+                    setAverage(promedioCalculado);
+
+                } else {
+
+                    setAverage(0);
+
+                }
+
+                response = await orderServices.getOrderForSeller(id);
+                setOrders(response.data);
+
+                response = await exchangeServices.getExchangeForUserId(id);
+                setExchange(response.data);
+
+                response = await reportServices.getReportForReported(id);
+                setReport(response.data);
+
             } catch (err) {
                 setError(true);
             } finally {
@@ -56,7 +91,7 @@ const Profile = () => {
         };
 
         fetchUserProfile();
-    }, [id, connectedUser]);
+    }, [id]);
 
     return (
         <div className={styles.perfilPaginaWrapper}>
@@ -65,15 +100,31 @@ const Profile = () => {
                 {/* Columna Izquierda: Foto, Nombre, Fecha y Estrellas */}
                 <div className={styles.columnaIzquierda}>
                     <div className={styles.avatarWrapper}>
-                        <ImagenPerfil imagen={user?.avatar || ''} nombreUsuario={user?.nombre || 'Juan Zapata'} />
+                        {
+                            myProfile ?
+                                (<ImagenPerfil imagen={connectedUser?.color_avatar || null} iconoFallback={FaUserCircle} nombreUsuario={connectedUser.nombre} />)
+                                :
+                                (<ImagenPerfil imagen={connectedUser?.color_avatar || null} iconoFallback={FaUserCircle} nombreUsuario={otherProfile.nombre} />)
+                        }
                     </div>
 
                     <div className={styles.detallesUsuario}>
-                        <h2 className={styles.nombreUsuario}>{user?.nombre || 'Nombre de Usuario'}</h2>
-                        <span className={styles.miembroDesde}>Miembro desde: {user?.fechaRegistro || '2026'}</span>
+
+                        {
+                            myProfile ?
+                                (<>
+                                    <h2 className={styles.nombreUsuario}>{connectedUser.nombre}</h2>
+                                    <span className={styles.miembroDesde}>Miembro desde: {connectedUser.fecha_registro}</span>
+                                </>)
+                                :
+                                (<>
+                                    <h2 className={styles.nombreUsuario}>{otherProfile.nombre}</h2>
+                                    <span className={styles.miembroDesde}>Miembro desde: {otherProfile.fecha_registro}</span>
+                                </>)
+                        }
 
                         <div className={styles.estrellasWrapper}>
-                            <CalificacionEstrellas promedio={promedio} tamano="1.25rem" />
+                            <CalificacionEstrellas promedio={average} tamano="1.25rem" />
                         </div>
                     </div>
                 </div>
@@ -81,25 +132,25 @@ const Profile = () => {
                 {/* Columna Derecha: Badge de Verificado y Botones de Acción */}
                 <div className={styles.columnaDerecha}>
                     <div className={styles.verificadoBadge}>
-                        <Verificado estaVerificado={true} />
+                        <Verificado estaVerificado={verified} />
                     </div>
 
                     <div className={styles.accionesBotones}>
                         {myProfile ? (
                             <BotonPerfilNavegacion
-                                direccion="/editar"
+                                direccion={`/editar/${id}`}
                                 icono={MdEdit}
                                 nombre="Editar Perfil"
                             />
                         ) : (
                             <>
                                 <BotonPerfilNavegacion
-                                    direccion="/calificar"
+                                    direccion={`/calificar/${id}`}
                                     icono={FaStar}
                                     nombre="Calificar"
                                 />
                                 <BotonPerfilNavegacion
-                                    direccion="/reportar"
+                                    direccion={`/reportar/${id}`}
                                     icono={FaExclamationTriangle}
                                     nombre="Reportar"
                                 />
@@ -112,22 +163,19 @@ const Profile = () => {
             {/* Estadísticas del perfil */}
             <div className={styles.contenedorGeneral}>
                 <div className={styles.gridEstadisticas}>
-                    <TarjetaEstadisticaPerfil icono={FaShoppingBag} nombreEstadistica={'Ventas Realizadas'} valorEstadistica={25} />
-                    <TarjetaEstadisticaPerfil icono={HiOutlineSwitchHorizontal} nombreEstadistica={'Trueques Exitosos'} valorEstadistica={25} />
-                    <TarjetaEstadisticaPerfil icono={FaExclamationTriangle} nombreEstadistica={'Reportes'} valorEstadistica={0} />
-                    <TarjetaEstadisticaPerfil icono={FaStar} nombreEstadistica={'Calificación'} valorEstadistica={promedio} />
+                    <TarjetaEstadisticaPerfil icono={FaShoppingBag} nombreEstadistica={'Ventas Realizadas'} valorEstadistica={orders.length || 0} />
+                    <TarjetaEstadisticaPerfil icono={HiOutlineSwitchHorizontal} nombreEstadistica={'Trueques Exitosos'} valorEstadistica={exchange.length || 0} />
+                    <TarjetaEstadisticaPerfil icono={FaExclamationTriangle} nombreEstadistica={'Reportes'} valorEstadistica={report.length || 0} />
+                    <TarjetaEstadisticaPerfil icono={FaStar} nombreEstadistica={'Calificación'} valorEstadistica={average} />
                 </div>
             </div>
 
             {/* Contenido Dinámico del Perfil */}
             <div className={styles.seccionTabsContenedor}>
                 <div className={styles.seccionTabsBarraNav}>
-                    <BotonPerfilNavegacion direccion={'/prendasPublicadas'} icono={null} nombre={'Prendas Publicadas'} />
-                    <BotonPerfilNavegacion direccion={'/Reseñas'} icono={null} nombre={'Reseñas'} />
+                    <BotonPerfilNavegacion direccion={'/perfil/prendasPublicadas'} icono={null} nombre={'Prendas Publicadas'} />
+                    <BotonPerfilNavegacion direccion={'/perfil/resenas'} icono={null} nombre={'Reseñas'} />
                 </div>
-
-                <PrendasPropias myProfile={myProfile} />
-                <ResenasPropias />
             </div>
         </div>
     );

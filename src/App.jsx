@@ -1,14 +1,14 @@
-import { useContext, useState } from 'react'
-import { ConnectedUserContext } from './context/ConnectedUser.context';
 import Profile from './pages/community/Profile';
+import Perfil from './routers/community/Perfil.Route';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const { connectedUser, setConnectedUser } = useContext(ConnectedUserContext);
-
   return (
-    <Profile />
+    <>
+      <Profile />
+    </>
+    
   )
 }
 
 export default App
+
