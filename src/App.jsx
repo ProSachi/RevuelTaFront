@@ -37,6 +37,10 @@ function App() {
           userGarments={mockUserGarments}
           isOpen={isTradeModalOpen}
           onClose={() => setIsTradeModalOpen(false)}
+          onSubmit={(selectedIds) => {
+            console.log("Propuesta de trueque:", selectedIds);
+            setIsTradeModalOpen(false);
+          }}
         />
       )}
     </div>
