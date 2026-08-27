@@ -2,15 +2,16 @@ import { obtenerPedidoPorId } from '../data/pedidosTrueque'
 import ResumenPedidoTrueque from './ResumenPedidoTrueque'
 import InformacionEntregaTrueque from './InformacionEntregaTrueque'
 import ResumenEconomicoTrueque from './ResumenEconomicoTrueque'
+import './DetallePedido.css'
 
 const DetallePedido = ({ pedidoId, onVolver, onRastrearEnvio }) => {
   const pedido = obtenerPedidoPorId(pedidoId)
 
   if (!pedido) {
     return (
-      <main className="mx-auto max-w-3xl p-6">
-        <p className="text-ink/60">No encontramos información para este pedido.</p>
-        <button onClick={onVolver} className="mt-4 text-pine underline">
+      <main className="dp-main">
+        <p className="dp-empty-text">No encontramos información para este pedido.</p>
+        <button onClick={onVolver} className="dp-empty-back-btn">
           Volver a Mis Pedidos
         </button>
       </main>
@@ -18,8 +19,8 @@ const DetallePedido = ({ pedidoId, onVolver, onRastrearEnvio }) => {
   }
 
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-6 p-6">
-      <h1 className="font-display text-3xl text-ink">Detalle del pedido</h1>
+    <main className="dp-main dp-container">
+      <h1 className="dp-title">Detalle del pedido</h1>
 
       {pedido.tipo === 'Trueque' ? (
         <>
@@ -47,22 +48,16 @@ const DetallePedido = ({ pedidoId, onVolver, onRastrearEnvio }) => {
           />
         </>
       ) : (
-        <p className="text-ink/60">
+        <p className="dp-empty-text">
           El detalle para pedidos tipo {pedido.tipo} todavía no está definido.
         </p>
       )}
 
-      <div className="flex items-center justify-between">
-        <button
-          onClick={onVolver}
-          className="rounded-lg border border-line px-5 py-2.5 text-sm font-medium text-ink hover:border-pine hover:text-pine"
-        >
+      <div className="dp-footer-actions">
+        <button onClick={onVolver} className="dp-btn-secondary">
           ← Volver a Mis Pedidos
         </button>
-        <button
-          onClick={() => onRastrearEnvio(pedido.id)}
-          className="rounded-lg bg-ink px-5 py-2.5 text-sm font-medium text-paper hover:bg-pine"
-        >
+        <button onClick={() => onRastrearEnvio(pedido.id)} className="dp-btn-primary">
           Rastrear envío
         </button>
       </div>

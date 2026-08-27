@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { obtenerVendedoresPedido } from '../data/vendedores'
 import { crearResena, obtenerVendedoresResenados } from '../data/resenas'
+import './VentanaModalDejarResena.css'
 
 const VentanaModalDejarResena = ({ pedidoId, onCerrar, onFlujoFinalizado }) => {
   const vendedoresPedido = obtenerVendedoresPedido(pedidoId)
@@ -95,14 +96,14 @@ const VentanaModalDejarResena = ({ pedidoId, onCerrar, onFlujoFinalizado }) => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
-      <div className="w-full max-w-md rounded-2xl border border-line bg-paper p-6 shadow-xl">
-        <div className="mb-5 flex items-center justify-between">
-          <h2 className="font-display text-2xl text-ink">Califica tu compra</h2>
+    <div className="vmdr-backdrop">
+      <div className="vmdr-modal">
+        <div className="vmdr-header">
+          <h2 className="vmdr-title">Califica tu compra</h2>
           <button
             type="button"
             onClick={onCerrar}
-            className="text-ink/50 transition hover:text-clay"
+            className="vmdr-close-btn"
             aria-label="Cerrar"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -116,16 +117,16 @@ const VentanaModalDejarResena = ({ pedidoId, onCerrar, onFlujoFinalizado }) => {
           </button>
         </div>
 
-        <form onSubmit={manejarEnvio} className="flex flex-col gap-5">
+        <form onSubmit={manejarEnvio} className="vmdr-form">
           <div>
-            <label className="mb-2 block font-mono text-xs uppercase tracking-wide text-ink/60">
+            <label className="vmdr-label-secondary">
               Selecciona el vendedor a reseñar
             </label>
             <select
               value={vendedorSeleccionado}
               onChange={(evento) => setVendedorSeleccionado(evento.target.value)}
               disabled={vendedoresDisponibles.length === 1}
-              className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink disabled:opacity-70"
+              className="vmdr-select"
             >
               <option value="">Selecionar el Vendedor a reseñar</option>
               {vendedoresDisponibles.map((vendedor) => (
@@ -137,17 +138,17 @@ const VentanaModalDejarResena = ({ pedidoId, onCerrar, onFlujoFinalizado }) => {
           </div>
 
           <div>
-            <p className="mb-2 font-display text-lg text-ink">Califícanos</p>
-            <div className="flex gap-2">
+            <p className="vmdr-rating-title">Califícanos</p>
+            <div className="vmdr-stars-container">
               {[1, 2, 3, 4, 5].map((valor) => (
                 <button
                   key={valor}
                   type="button"
                   onClick={() => setCalificacion(valor)}
                   aria-label={`${valor} estrellas`}
-                  className="text-3xl leading-none"
+                  className="vmdr-star-btn"
                 >
-                  <span className={valor <= calificacion ? 'text-marigold' : 'text-line'}>
+                  <span className={valor <= calificacion ? 'vmdr-star-active' : 'vmdr-star-inactive'}>
                     ★
                   </span>
                 </button>
@@ -156,7 +157,7 @@ const VentanaModalDejarResena = ({ pedidoId, onCerrar, onFlujoFinalizado }) => {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm text-ink/70">
+            <label className="vmdr-label-text">
               Cuéntanos tu experiencia
             </label>
             <textarea
@@ -164,47 +165,47 @@ const VentanaModalDejarResena = ({ pedidoId, onCerrar, onFlujoFinalizado }) => {
               onChange={(evento) => setComentario(evento.target.value)}
               rows={3}
               placeholder="¿Como era la prenda comparada a las fotos? ¿Como fue el envío?"
-              className="w-full resize-none rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink placeholder:text-ink/40"
+              className="vmdr-textarea"
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-sm text-ink/70">
+            <label className="vmdr-label-text">
               Subir fotos (Opcional)
             </label>
-            <div className="flex flex-wrap gap-3">
+            <div className="vmdr-photo-list">
               {fotos.map((foto) => (
-                <div key={foto.id} className="relative h-16 w-16 overflow-hidden rounded-lg border border-line">
-                  <img src={foto.url} alt={foto.nombre} className="h-full w-full object-cover" />
+                <div key={foto.id} className="vmdr-photo-item">
+                  <img src={foto.url} alt={foto.nombre} className="vmdr-photo-preview" />
                   <button
                     type="button"
                     onClick={() => eliminarFoto(foto.id)}
-                    className="absolute right-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-ink/70 text-[10px] text-paper"
+                    className="vmdr-photo-del-btn"
                     aria-label="Eliminar foto"
                   >
                     ×
                   </button>
                 </div>
               ))}
-              <label className="flex h-16 w-16 cursor-pointer items-center justify-center rounded-lg border border-dashed border-line text-ink/50 hover:border-pine hover:text-pine">
+              <label className="vmdr-photo-upload-label">
                 <input
                   type="file"
                   accept="image/*"
                   multiple
                   onChange={manejarSeleccionFotos}
-                  className="hidden"
+                  className="vmdr-hidden-input"
                 />
                 +
               </label>
             </div>
           </div>
 
-          {error && <p className="text-sm text-clay">{error}</p>}
+          {error && <p className="vmdr-error-text">{error}</p>}
 
           <button
             type="submit"
             disabled={calificacion === 0}
-            className="w-full rounded-lg bg-pine py-3 font-semibold text-paper transition hover:bg-ink disabled:cursor-not-allowed disabled:bg-line disabled:text-ink/40"
+            className="vmdr-submit-btn"
           >
             Enviar reseña
           </button>

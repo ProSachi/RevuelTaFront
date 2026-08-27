@@ -1,10 +1,11 @@
 import { formatearMoneda } from '../utils/formatoMoneda'
+import './ResumenPedidoTrueque.css'
 
 const TarjetaPrenda = ({ etiqueta, prenda }) => (
-  <div className="flex flex-1 gap-3">
-    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border border-line bg-paper-2 text-ink/30">
+  <div className="rpt-item-card">
+    <div className="rpt-item-image-box">
       {prenda.imagen ? (
-        <img src={prenda.imagen} alt={prenda.nombre} className="h-full w-full rounded-lg object-cover" />
+        <img src={prenda.imagen} alt={prenda.nombre} className="rpt-item-img" />
       ) : (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
@@ -14,13 +15,13 @@ const TarjetaPrenda = ({ etiqueta, prenda }) => (
       )}
     </div>
     <div>
-      <p className="font-mono text-xs uppercase tracking-wide text-ink/50">{etiqueta}</p>
-      <p className="font-display text-lg text-ink">{prenda.nombre}</p>
-      <p className="font-semibold text-pine">{formatearMoneda(prenda.valor)}</p>
-      <p className="text-sm text-ink/60">
+      <p className="rpt-item-label">{etiqueta}</p>
+      <p className="rpt-item-title">{prenda.nombre}</p>
+      <p className="rpt-item-price">{formatearMoneda(prenda.valor)}</p>
+      <p className="rpt-item-details">
         {prenda.marca} · {prenda.talla}
       </p>
-      <p className="mt-1 flex items-center gap-1 text-sm text-ink/70">
+      <p className="rpt-item-user">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5" />
           <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth="1.5" />
@@ -32,21 +33,21 @@ const TarjetaPrenda = ({ etiqueta, prenda }) => (
 )
 
 const ResumenPedidoTrueque = ({ id, fechaRealizacion, tipo, estado, prendaPropia, prendaRecibida }) => (
-  <section className="rounded-2xl border border-line bg-paper p-6">
-    <div className="mb-5 flex items-start justify-between">
+  <section className="rpt-section">
+    <div className="rpt-header">
       <div>
-        <h2 className="font-display text-xl text-ink">Pedido #{id}</h2>
-        <p className="text-sm text-ink/60">Realizado el {fechaRealizacion}</p>
-        <p className="text-sm text-ink/60">
-          Tipo de pedido: <span className="font-semibold text-ink">{tipo}</span>
+        <h2 className="rpt-header-title">Pedido #{id}</h2>
+        <p className="rpt-header-subtitle">Realizado el {fechaRealizacion}</p>
+        <p className="rpt-header-subtitle">
+          Tipo de pedido: <span className="rpt-header-highlight">{tipo}</span>
         </p>
       </div>
-      <span className="rounded-full bg-ink px-3 py-1 text-xs font-medium text-paper">{estado}</span>
+      <span className="rpt-status-badge">{estado}</span>
     </div>
 
-    <div className="flex items-center gap-4 border-t border-line pt-5">
+    <div className="rpt-exchange-grid">
       <TarjetaPrenda etiqueta="Tu prenda" prenda={prendaPropia} />
-      <span className="text-2xl text-moss">⇄</span>
+      <span className="rpt-exchange-symbol">⇄</span>
       <TarjetaPrenda etiqueta="Prenda que recibes" prenda={prendaRecibida} />
     </div>
   </section>
