@@ -1,4 +1,4 @@
-import "../index.css";
+import "../../index.css";
 import { ResumenPuntosActuales } from './ResumenPuntosActuales.jsx';
 import { ListadoHistorialPuntos } from './ListadoHistorialPuntos.jsx';
 

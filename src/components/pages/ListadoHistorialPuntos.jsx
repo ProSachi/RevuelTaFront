@@ -1,6 +1,5 @@
-import { IconoMovimiento } from './IconosHistorialPuntos.jsx';
-import { formatearFechaCompleta } from '../utils/formatearFecha.js';
-
+import { IconoMovimiento } from "./IconosHistorialPuntos.jsx";
+import { formatearFechaCompleta } from "../../utils/formatearFecha.js"; 
 
 export const ListadoHistorialPuntos = ({ movimientos = [] }) => {
   if (movimientos.length === 0) {
