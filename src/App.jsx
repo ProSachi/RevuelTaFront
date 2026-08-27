@@ -1,9 +1,7 @@
-import './App.css'
-import AppRouter from './router/AppRouter'
+import Perfil from "./pages/Perfil/Perfil";
 
 function App() {
-
-  return <AppRouter />
+  return <Perfil />;
 }
 
-export default App
+export default App;

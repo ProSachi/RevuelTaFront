@@ -1,0 +1,26 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-titulo);
+}
+
+a {
+  color: var(--color-pine);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-pine);
+  outline-offset: 2px;
+}

@@ -1,14 +1,41 @@
 :root {
-    --font-heading: "Fraunces", serif;
-    --font-body: "Plus Jakarta Sans", sans-serif;
-    --font-mono: "Space Mono", monospace;
+  --color-pine: #2f5233;
+  --color-pine-oscuro: #1e3620;
+  --color-pine-claro: #4f7a55;
 
-    --color-ink: #15201b;
-    --color-pine: #1f5e4a;
-    --color-moss: #3e9c7a;
-    --color-marigold: #f2a03d;
-    --color-clay: #e8643c;
-    --color-paper: #f6f2e9;
-    --color-paper-2: #efe9dc;
-    --color-line: #ded6c5;
+  --color-fondo: #ffffff;
+  --color-superficie: #f5f5f4;
+  --color-borde: #d9d9d6;
+
+  --color-texto: #1a1a1a;
+  --color-texto-secundario: #6b6b6b;
+  --color-texto-invertido: #ffffff;
+
+  --color-exito: #2e7d32;
+  --color-error: #c62828;
+  --color-advertencia: #ed6c02;
+
+  --font-titulo: "NombreFuenteTitulo", system-ui, sans-serif;
+  --font-body: "NombreFuenteBody", system-ui, sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+
+  --espacio-xs: 4px;
+  --espacio-sm: 8px;
+  --espacio-md: 16px;
+  --espacio-lg: 24px;
+  --espacio-xl: 40px;
+
+  --radio-sm: 4px;
+  --radio-md: 8px;
+  --radio-lg: 16px;
+
+  --sombra-modal: 0 8px 24px rgba(0, 0, 0, 0.18);
+
+  --z-modal: 1000;
+  --z-overlay: 999;
 }

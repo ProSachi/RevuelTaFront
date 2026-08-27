@@ -1,0 +1,116 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+}
+
+.contenedorFoto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-sm);
+}
+
+.foto {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-superficie);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagenFoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fotoPlaceholder {
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: var(--color-borde);
+}
+
+.inputArchivo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.iconoCamara {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-pine);
+  pointer-events: none;
+}
+
+.botonEliminarFoto {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+}
+
+.botonEliminarFoto:hover {
+  text-decoration: underline;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.input {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  padding: var(--espacio-sm);
+  font-size: var(--font-size-md);
+  font-weight: 400;
+}
+
+.input:disabled {
+  background-color: var(--color-superficie);
+  color: var(--color-texto-secundario);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--color-pine);
+  outline-offset: 1px;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+}
+
+.botonPuntosAcopio {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  padding: var(--espacio-sm);
+  font-weight: 400;
+  text-align: center;
+}
+
+.botonPuntosAcopio:hover {
+  background-color: var(--color-superficie);
+}
+
+@media (max-width: 480px) {
+  .foto {
+    width: 80px;
+    height: 80px;
+  }
+}
