@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import MainLayout from "../layouts/MainLayout"
 import { RUTAS } from "../constants/rutas"
 import AuthLayout from "../layouts/AuthLayout"
-import DescuentosCampanas from "../pages/mercadeo/DescuentosCampanas"
+import DescuentosCampanas from "../components/mercadeo/DescuentosCampanas"
 import RecuperarContrasenaPage from "../components/RecuperacionContraseña/RecuperarContrasena"
 
 const AppRouter = () => {

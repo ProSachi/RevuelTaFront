@@ -25,20 +25,46 @@ const VentanaModalCampanas = ({ onCerrar }) => {
     <div
       className="modal d-block"
       tabIndex="-1"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.45)' }}
+      style={{
+        backgroundColor: 'rgba(21, 32, 27, 0.45)',
+        backdropFilter: 'blur(2px)',
+      }}
       role="dialog"
       aria-modal="true"
     >
-      <div className="modal-dialog modal-dialog-centered modal-lg">
-        <div className="modal-content border-0 shadow">
-          <div className="modal-header border-0">
-            <h5 className="modal-title fw-bold" style={{ color: 'var(--ink)' }}>
+      <div className="modal-dialog modal-dialog-centered modal-lg" style={{ maxWidth: '760px' }}>
+        <div
+          className="modal-content border-0 shadow"
+          style={{
+            borderRadius: '24px',
+            border: '1px solid var(--color-line)',
+            backgroundColor: 'rgba(255,255,255,0.96)',
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            className="modal-header border-0"
+            style={{
+              backgroundColor: 'rgba(246, 242, 233, 0.8)',
+              padding: '1.25rem 1.5rem 1rem',
+            }}
+          >
+            <h5 className="modal-title fw-bold" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display)' }}>
               Campañas
             </h5>
-            <button type="button" className="btn-close" aria-label="Cerrar" onClick={onCerrar} />
+            <button
+              type="button"
+              className="btn-close"
+              aria-label="Cerrar"
+              onClick={onCerrar}
+              style={{
+                filter: 'grayscale(100%) brightness(0.5)',
+                opacity: 1,
+              }}
+            />
           </div>
 
-          <div className="modal-body" style={{ maxHeight: '65vh', overflowY: 'auto' }}>
+          <div className="modal-body" style={{ maxHeight: '65vh', overflowY: 'auto', padding: '1.25rem 1.5rem 1.5rem' }}>
             <SelectorEstadoCampanas
               estadoSeleccionado={estadoSeleccionado}
               onCambiarEstado={handleCambiarEstado}
@@ -52,11 +78,17 @@ const VentanaModalCampanas = ({ onCerrar }) => {
             />
           </div>
 
-          <div className="modal-footer border-0 justify-content-center">
+          <div className="modal-footer border-0 justify-content-center" style={{ padding: '0 1.5rem 1.5rem' }}>
             <button
               type="button"
               className="btn fw-semibold px-4"
-              style={{ backgroundColor: 'var(--paper-2)', color: 'var(--ink)' }}
+              style={{
+                backgroundColor: 'var(--color-paper-2)',
+                color: 'var(--ink)',
+                borderRadius: '12px',
+                border: '1px solid var(--color-line)',
+                minWidth: '120px',
+              }}
               onClick={onCerrar}
             >
               Cerrar
