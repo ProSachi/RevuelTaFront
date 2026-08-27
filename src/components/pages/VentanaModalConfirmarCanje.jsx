@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "../index.css";
+import "../../index.css";
 
 export const VentanaModalConfirmarCanje = ({ oferta, saldoActual, onCerrar, onCanjeExitoso }) => {
   const [errorCanje, setErrorCanje] = useState('');

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { VentanaModalConfirmarCanje } from './components/VentanaModalConfirmarCanje.jsx';
-import { VentanaModalHistorialPuntos } from './components/VentanaModalHistorialPuntos.jsx';
+import { VentanaModalConfirmarCanje } from './components/pages/VentanaModalConfirmarCanje.jsx';
+import { VentanaModalHistorialPuntos } from './components/pages/VentanaModalHistorialPuntos.jsx';
 import { usePuntos } from './context/usePuntos.js';
 
 const ofertaEjemplo = {
