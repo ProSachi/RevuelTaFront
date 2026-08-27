@@ -4,13 +4,13 @@ import BotonPerfilNavegacion from '../botonNavecionPerfil/BotonPerfilNavegacion'
 import TarjetaResena from '../tarjetaReseña/TarjetaResena';
 import { FaPlusCircle } from 'react-icons/fa';
 
-const ResenasPropias = () => {
+const ResenasPropias = ({id}) => {
   return (
     <div className={styles.resenasPropiasContenedor}>
       {/* Barra superior de acción */}
       <div className={styles.resenasPropiasHeader}>
         <BotonPerfilNavegacion
-          direccion={'/perfil/crear/reseña'}
+          direccion={`/perfil/${id}/crear/reseña`}
           icono={FaPlusCircle}
           nombre={'Crear Reseña'}
           colorActivo="#1F5E4A"
