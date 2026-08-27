@@ -1,0 +1,117 @@
+.rpt-section {
+  border-radius: 1rem;
+  border: 1px solid var(--color-line, #e2e2e2);
+  background-color: var(--color-paper, #ffffff);
+  padding: 1.5rem;
+}
+
+.rpt-header {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.rpt-header-title {
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: 1.25rem;
+  color: var(--color-ink, #1e1e1e);
+}
+
+.rpt-header-subtitle {
+  margin: 0.125rem 0 0 0;
+  font-size: 0.875rem;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.6);
+}
+
+.rpt-header-highlight {
+  font-weight: 600;
+  color: var(--color-ink, #1e1e1e);
+}
+
+.rpt-status-badge {
+  border-radius: 9999px;
+  background-color: var(--color-ink, #1e1e1e);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-paper, #ffffff);
+}
+
+.rpt-exchange-grid {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--color-line, #e2e2e2);
+  padding-top: 1.25rem;
+}
+
+.rpt-exchange-symbol {
+  font-size: 1.5rem;
+  color: var(--color-moss, #52796f);
+}
+
+.rpt-item-card {
+  display: flex;
+  flex: 1;
+  gap: 0.75rem;
+}
+
+.rpt-item-image-box {
+  display: flex;
+  height: 4rem;
+  width: 4rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line, #e2e2e2);
+  background-color: var(--color-paper-2, #f8f8f8);
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.3);
+  overflow: hidden;
+}
+
+.rpt-item-img {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.rpt-item-label {
+  margin: 0;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.5);
+}
+
+.rpt-item-title {
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: 1.125rem;
+  color: var(--color-ink, #1e1e1e);
+}
+
+.rpt-item-price {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-pine, #2d6a4f);
+}
+
+.rpt-item-details {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.6);
+}
+
+.rpt-item-user {
+  margin: 0.25rem 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.7);
+}

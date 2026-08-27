@@ -1,0 +1,105 @@
+.vvr-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.4);
+  padding: 1rem;
+}
+
+.vvr-modal {
+  width: 100%;
+  max-width: 28rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-line, #e2e2e2);
+  background-color: var(--color-paper, #ffffff);
+  padding: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.vvr-header {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vvr-title {
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: 1.5rem;
+  color: var(--color-ink, #1e1e1e);
+}
+
+.vvr-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.5);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vvr-close-btn:hover {
+  color: var(--color-clay, #c85a48);
+}
+
+.vvr-empty-text {
+  font-size: 0.875rem;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.6);
+  margin: 0;
+}
+
+.vvr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vvr-card {
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line, #e2e2e2);
+  background-color: var(--color-paper-2, #f8f8f8);
+  padding: 1rem;
+}
+
+.vvr-vendor-name {
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: 1rem;
+  color: var(--color-ink, #1e1e1e);
+}
+
+.vvr-stars-row {
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.125rem;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.vvr-star-active {
+  color: var(--color-marigold, #f59e0b);
+}
+
+.vvr-star-inactive {
+  color: var(--color-line, #e2e2e2);
+}
+
+.vvr-comment {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.875rem;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.7);
+}
+
+.vvr-photos-count {
+  margin: 0.5rem 0 0 0;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: rgba(var(--color-ink-rgb, 30, 30, 30), 0.4);
+}
