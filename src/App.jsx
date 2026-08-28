@@ -4,7 +4,7 @@ import Perfil from './routers/community/Perfil.Route';
 function App() {
   return (
     <>
-      <Profile />
+      <Perfil />
     </>
     
   )

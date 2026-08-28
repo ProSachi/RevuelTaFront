@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import ImagenPerfil from '../../components/profiles/imagenPerfil/ImagenPerfil';
 import Verificado from '../../components/profiles/verificacion/Verificado';
 import { MdEdit } from "react-icons/md";
@@ -176,6 +176,7 @@ const Profile = () => {
                     <BotonPerfilNavegacion direccion={'/perfil/prendasPublicadas'} icono={null} nombre={'Prendas Publicadas'} />
                     <BotonPerfilNavegacion direccion={'/perfil/resenas'} icono={null} nombre={'Reseñas'} />
                 </div>
+                <Outlet />
             </div>
         </div>
     );
