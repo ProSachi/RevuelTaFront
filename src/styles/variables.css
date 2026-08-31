@@ -1,0 +1,14 @@
+:root {
+    --font-heading: "Fraunces", serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+    --font-mono: "Space Mono", monospace;
+
+    --color-ink: #15201b;
+    --color-pine: #1f5e4a;
+    --color-moss: #3e9c7a;
+    --color-marigold: #f2a03d;
+    --color-clay: #e8643c;
+    --color-paper: #f6f2e9;
+    --color-paper-2: #efe9dc;
+    --color-line: #ded6c5;
+}
