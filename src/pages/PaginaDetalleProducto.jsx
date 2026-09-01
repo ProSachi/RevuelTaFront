@@ -5,12 +5,15 @@ import ProductosRelacionados from '../components/pages/catalogo/ProductosRelacio
 import GaleriaProducto from '../components/pages/catalogo/GaleriaProducto';
 import { fetchProductById, fetchProducts } from '../services/productService';
 import { obtenerImagenesProducto, extraerImagenesProducto } from '../services/productoImagenesService';
+import TradeModal from '../components/modals/TradeModal/TradeModal';
+import { mockUserGarments } from '../data/mockUserGarments';
 import styles from './DetalleProducto.module.css';
 
 const PaginaDetalleProducto = () => {
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalTruequeAbierto, setModalTruequeAbierto] = useState(false);
 
   const loadProducto = async (id) => {
     try {
@@ -77,7 +80,7 @@ const PaginaDetalleProducto = () => {
 
   const handleProponerTrueque = () => {
     const usuarioAutenticado = true;
-    if (usuarioAutenticado) alert('Abriendo modal de trueque del producto...');
+    if (usuarioAutenticado) setModalTruequeAbierto(true);
     else alert('Abriendo modal de identificación (Login)...');
   };
 
@@ -103,6 +106,17 @@ const PaginaDetalleProducto = () => {
         onSeleccionarProducto={(id) => {
           window.history.pushState({ productoId: id }, '', `/producto/${id}`);
           loadProducto(id);
+        }}
+      />
+
+      <TradeModal
+        productoObjetivo={producto}
+        prendasUsuario={mockUserGarments}
+        estaAbierto={modalTruequeAbierto}
+        onCerrar={() => setModalTruequeAbierto(false)}
+        onSubmit={(prendasIds) => {
+          console.log('Propuesta de trueque:', prendasIds);
+          setModalTruequeAbierto(false);
         }}
       />
     </div>

@@ -21,9 +21,9 @@ function ProductosDestacados({ onVerProducto, onAgregarCarrito, onTrueque }) {
                         talla={producto.talla}
                         calificacion={producto.calificacion}
                         precio={producto.precio}
-                        onVerProducto={() => onVerProducto(producto.id)}
+                        onVerProducto={() => onVerProducto(producto)}
                         onAgregarCarrito={() => onAgregarCarrito(producto.id)}
-                        onTrueque={() => onTrueque(producto.id)}
+                        onTrueque={() => onTrueque(producto)}
                     />
                 ))}
             </div>
