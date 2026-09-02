@@ -1,0 +1,160 @@
+.tarjeta {
+  display: grid;
+  grid-template-columns: 72px 1fr auto auto;
+  gap: 1.25rem;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  transition: border-color 0.2s;
+}
+
+.tarjeta:hover {
+  border-color: #c9c2b1;
+}
+
+@media (max-width: 600px) {
+  .tarjeta {
+    grid-template-columns: 60px 1fr;
+    grid-template-areas:
+      'img info'
+      'cant precio';
+  }
+  .cantidadWrapper {
+    grid-area: cant;
+  }
+  .precioWrapper {
+    grid-area: precio;
+    justify-self: end;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.nombre {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.meta {
+  margin: 0;
+  color: #5a5f5a;
+  font-size: 0.85rem;
+}
+
+.vendedor {
+  margin: 0.15rem 0 0.5rem 0;
+  font-size: 0.85rem;
+  color: #5a5f5a;
+}
+
+.rating {
+  color: var(--marigold);
+  font-weight: 700;
+  margin-left: 0.35rem;
+}
+
+.btnTrueque {
+  align-self: flex-start;
+  border: 1px solid var(--pine);
+  background: transparent;
+  color: var(--pine);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnTrueque:hover {
+  background: var(--pine);
+  color: #ffffff;
+}
+
+.truequePropuesto {
+  border-color: var(--marigold);
+  color: #a76612;
+}
+
+.truequePropuesto:hover {
+  background: var(--marigold);
+  color: #ffffff;
+}
+
+.truequeAceptado {
+  border-color: var(--moss);
+  color: var(--pine);
+}
+
+.truequeAceptado:hover {
+  background: var(--moss);
+  color: #ffffff;
+}
+
+.truequeRechazado {
+  border-color: var(--clay);
+  color: var(--clay);
+}
+
+.truequeRechazado:hover {
+  background: var(--clay);
+  color: #ffffff;
+}
+
+.cantidadWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem;
+  background: #ffffff;
+}
+
+.btnCantidad {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btnCantidad:hover:not(:disabled) {
+  background: var(--paper-2);
+}
+
+.btnCantidad:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cantidadNumero {
+  min-width: 1.25rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.precioWrapper {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  color: var(--ink);
+}

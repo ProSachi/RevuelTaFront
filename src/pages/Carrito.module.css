@@ -1,0 +1,57 @@
+.pagina {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0.5rem 0 3rem;
+}
+
+.titulo {
+  font-size: 2.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vacio {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: #ffffff;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vacio p {
+  font-size: 1.1rem;
+  color: #5a5f5a;
+  margin: 0;
+}
+
+.btnIrCatalogo {
+  background: var(--pine);
+  color: #ffffff;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.btnIrCatalogo:hover {
+  opacity: 0.92;
+}

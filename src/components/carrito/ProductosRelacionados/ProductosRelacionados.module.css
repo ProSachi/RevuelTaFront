@@ -1,0 +1,57 @@
+.seccion {
+  margin-top: 3.5rem;
+}
+
+.titulo {
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.25rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: center;
+  padding: 1.15rem 0.85rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.tarjeta:hover {
+  border-color: var(--pine);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21, 32, 27, 0.06);
+}
+
+.nombre {
+  font-weight: 600;
+  margin: 0.35rem 0 0 0;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.marca {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #5a5f5a;
+}
+
+.precio {
+  margin: 0.2rem 0 0 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.95rem;
+}

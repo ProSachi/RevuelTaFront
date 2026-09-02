@@ -1,0 +1,65 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(21, 32, 27, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(21, 32, 27, 0.15);
+}
+
+.titulo {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.descripcion {
+  font-size: 0.9rem;
+  color: #5a5f5a;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.btnCancelar {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btnEliminar {
+  border: none;
+  background: var(--clay);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btnEliminar:hover {
+  opacity: 0.92;
+}
