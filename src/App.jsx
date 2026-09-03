@@ -1,10 +1,11 @@
-import AppRouter from './router/AppRouter'
 import ProveedorAutenticacion from './context/ProveedorAutenticacion'
+import TestModalResena from './components/TestModalResena'
 
 function App() {
   return (
     <ProveedorAutenticacion>
-      <AppRouter />
+
+      <TestModalResena />
     </ProveedorAutenticacion>
   )
 }
