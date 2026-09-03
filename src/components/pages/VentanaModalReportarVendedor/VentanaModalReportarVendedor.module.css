@@ -100,6 +100,14 @@
   gap: 0.75rem;
 }
 
+.mensajeError {
+  margin: 0.35rem 0 0;
+  color: #a44831;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
 .btnCancelar {
   font-family: var(--font-body);
   font-size: 0.9rem;

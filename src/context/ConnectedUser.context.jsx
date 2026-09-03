@@ -1,15 +1,16 @@
 import { createContext, useContext, useState } from 'react'
 
 // 1. Estado inicial por defecto cuando no hay nadie conectado
-const INITIAL_USER = {
-  Id: null,
-  nombre: null,
-  correo: null,
-  rol: null,
-  activo: null,
-  color_avatar: null,
-  fecha_registro: null
-};
+const INITIAL_USER ={
+    "id": "2e7a184d-e82e-49ba-b752-f966e83c9e59",
+    "nombre": "Usuario de prueba 4",
+    "correo": "usuario4@revuelta.test",
+    "rol": "estudiante",
+    "activo": true,
+    "colorAvatar": "#0D9488",
+    "fechaRegistro": "2026-09-02T23:12:13.148864"
+  };
+  //8b02fbee-d87f-4005-9d52-8187aba2a99f
 
 // 2. Crear el Contexto
 const ConnectedUserContext = createContext();

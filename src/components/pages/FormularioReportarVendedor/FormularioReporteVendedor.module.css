@@ -19,6 +19,14 @@
   color: #55635b;
 }
 
+.mensajeError {
+  margin: 0.35rem 0 0;
+  color: #a44831;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
 .opcionesLista {
   display: flex;
   flex-direction: column;
@@ -145,4 +153,148 @@
 .textareaComentario::placeholder {
   color: #939d97;
   font-size: 0.85rem;
+}
+
+/* Sección Prenda */
+.prendaSeccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prendasLista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.prendaCard {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 0.9rem;
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.prendaCard:hover {
+  border-color: var(--color-moss);
+  background-color: #fbf9f5;
+}
+
+.prendaCardSeleccionada {
+  border-color: var(--color-pine);
+  background-color: #f1f7f4;
+  box-shadow: var(--shadow-sm);
+}
+
+.prendaImagenContenedor {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: #e8e3d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prendaImagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prendaPlaceholder {
+  width: 24px;
+  height: 24px;
+  color: #8c9690;
+}
+
+.prendaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.prendaTitulo {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prendaMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #637069;
+}
+
+.prendaPrecio {
+  font-weight: 600;
+  color: var(--color-pine);
+}
+
+.prendaEstadoCarga,
+.prendaSinCompras {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  border: 1px dashed var(--color-line);
+  background-color: #f9f7f2;
+  color: #55635b;
+}
+
+.prendaSinCompras {
+  border-color: #e5b9a8;
+  background-color: #fff6f3;
+  color: #a44831;
+}
+
+/* Sección Prioridad */
+.prioridadSeccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.prioridadOpciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.prioridadBtn {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.prioridadBtn:hover {
+  border-color: var(--color-moss);
+}
+
+.prioridadBtnActivo {
+  border-color: var(--color-pine);
+  background-color: var(--color-pine);
+  color: var(--color-white);
 }

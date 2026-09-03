@@ -1,5 +1,4 @@
-import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Profile from '../../pages/community/Profile'
 import PrendasPropias from '../../components/profiles/prendasPropias/PrendasPropias'
 import ResenasPropias from '../../components/profiles/ResenasPropias/ResenasPropias'
@@ -14,6 +13,7 @@ const Perfil = () => {
 
         <Route path="prendasPublicadas" element={<PrendasPropias />} />
         <Route path="resenas" element={<ResenasPropias />} />
+
         <Route path="*" element={<PrendasPropias />} />
       </Route>
     </Routes>

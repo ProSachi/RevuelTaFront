@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import ImagenPerfil from '../../components/profiles/imagenPerfil/ImagenPerfil';
 import Verificado from '../../components/profiles/verificacion/Verificado';
 import { MdEdit } from "react-icons/md";
@@ -8,8 +8,6 @@ import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import BotonPerfilNavegacion from '../../components/profiles/botonNavecionPerfil/BotonPerfilNavegacion';
 import TarjetaEstadisticaPerfil from '../../components/profiles/tarjetaEstadisticaPerfil/TarjetaEstadisticaPerfil';
 import CalificacionEstrellas from '../../components/profiles/estrellasCalificacion/CalificacionEstrellas';
-import PrendasPropias from '../../components/profiles/prendasPropias/PrendasPropias';
-import ResenasPropias from '../../components/profiles/ResenasPropias/ResenasPropias';
 import styles from './Profile.module.css';
 import { useConnectedUser } from '../../context/ConnectedUser.context';
 import { userServices } from '../../services/userServices/userServices';
@@ -21,7 +19,6 @@ import LoadingComunity from '../../components/profiles/loading/LoadingComunity';
 import MensajeError from '../../components/profiles/mensajeError/MensajeError';
 import imagenError from '../../assets/errorserver.jpeg';
 import VentanaModalReportarVendedor from '../../components/pages/VentanaModalReportarVendedor/VentanaModalReportarVendedor';
-import api from '../../services/api';
 
 const Profile = () => {
 
@@ -38,10 +35,10 @@ const Profile = () => {
     */}
 
     const { id } = useParams();
+    const location = useLocation();
     const { connectedUser } = useConnectedUser();
     const [myProfile, setMyProfile] = useState(false);
     const [otherProfile, setOtherProfile] = useState({});
-    const [ratings, setRatings] = useState({});
     const [orders, setOrders] = useState({});
     const [exchange, setExchange] = useState({});
     const [report, setReport] = useState({});
@@ -51,20 +48,21 @@ const Profile = () => {
     const [verified, setVerified] = useState(false);
     const [modalReporteAbierto, setModalReporteAbierto] = useState(false);
 
-    const handleCerrarReporte = () => {
+    const handleCerrarReporte = useCallback(() => {
         setModalReporteAbierto(false);
-    };
+    }, []);
 
-    const handleEnviarReporte = async (datos) => {
-        await api.post('/reportes', datos);
-        setModalReporteAbierto(false);
-    };
+    const cargarReportes = useCallback(async () => {
+        try {
+            const reportData = await reportServices.getReportForReported(id);
+            setReport(reportData?.data || reportData || []);
+        } catch {
+            setReport([]);
+        }
+    }, [id]);
 
     useEffect(() => {
         const fetchUserProfile = async () => {
-
-            { /* if (!id || id === 'undefined' || id === 'perfil') return; */ }
-            console.log(id);
 
             try {
                 if (connectedUser?.id === String(id) || connectedUser?.Id === String(id)) {
@@ -102,14 +100,9 @@ const Profile = () => {
                     setExchange([]);
                 }
 
-                try {
-                    const reportData = await reportServices.getReportForReported(id);
-                    setReport(reportData?.data || reportData || []);
-                } catch {
-                    setReport([]);
-                }
+                await cargarReportes();
 
-            } catch (err) {
+            } catch {
                 setError(true);
             } finally {
                 setLoading(false);
@@ -120,7 +113,7 @@ const Profile = () => {
             fetchUserProfile();
         }
 
-    }, [id, connectedUser]);
+    }, [id, connectedUser, cargarReportes]);
 
 
     // 1. Estado de carga
@@ -206,8 +199,7 @@ const Profile = () => {
                                     nombre="Calificar"
                                 />
                                 <BotonPerfilNavegacion
-                                    direccion="reportar"
-                                    state={{ backgroundLocation: location }}
+                                    onClick={() => setModalReporteAbierto(true)}
                                     icono={FaExclamationTriangle}
                                     nombre="Reportar"
                                 />
@@ -238,9 +230,11 @@ const Profile = () => {
 
             {modalReporteAbierto && (
                 <VentanaModalReportarVendedor
+                    id={id}
+                    myProfile={myProfile}
                     vendedor={otherProfile}
                     onCerrar={handleCerrarReporte}
-                    onEnviarReporte={handleEnviarReporte}
+                    onReporteCreado={cargarReportes}
                 />
             )}
         </div>

@@ -11,6 +11,7 @@ import { userServices } from '../../../services/userServices/userServices';
 import { ratingServices } from '../../../services/ratingServices/ratingServices';
 import sinResenas from '../../../assets/sinResenas.svg';
 import imagenError from '../../../assets/errorserver.jpeg';
+import { useConnectedUser } from '../../../context/ConnectedUser.context';
 
 /*
 
@@ -29,6 +30,7 @@ import imagenError from '../../../assets/errorserver.jpeg';
 const ResenasPropias = () => {
 
   const { id, myProfile } = useOutletContext();
+  const { connectedUser } = useConnectedUser();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -92,15 +94,17 @@ const ResenasPropias = () => {
 
       <div className={styles.resenasPropiasContenedor}>
         {/* Barra superior de acción */}
-        <div className={styles.resenasPropiasHeader}>
-          <BotonPerfilNavegacion
-            direccion={`/perfil/${id}/crear/reseña`}
-            state={{ backgroundLocation: location }}
-            icono={FaPlusCircle}
-            nombre={'Crear Reseña'}
-            colorActivo="#1F5E4A"
-          />
-        </div>
+        {id !== connectedUser.id && (
+          <div className={styles.resenasPropiasHeader}>
+            <BotonPerfilNavegacion
+              direccion={`/perfil/${id}/crear/reseña`}
+              state={{ backgroundLocation: location }}
+              icono={FaPlusCircle}
+              nombre={'Crear Reseña'}
+              colorActivo="#1F5E4A"
+            />
+          </div>
+        )}
 
         {
 
@@ -121,7 +125,7 @@ const ResenasPropias = () => {
             </div>
 
           ) : (
-            
+
             <MensajeError
               imagen={sinResenas}
               alt={myProfile ? "Sin reseñas publicadas" : "Usuario sin reseñas"}

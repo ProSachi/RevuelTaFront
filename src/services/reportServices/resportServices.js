@@ -17,4 +17,9 @@ export const reportServices = {
         return response.data;
     },
 
+    postReport: async (reportData) => {
+        const response = await apiServer.post(`/reportes`, reportData);
+        return response.data;
+    }
+
 }
