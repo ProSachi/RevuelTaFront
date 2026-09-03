@@ -29,9 +29,12 @@ const PrendasPropias = () => {
 
       setGarments(listaPrendas);
     } catch (err) {
-      console.error("Error al obtener prendas del usuario:", err);
-      setError(true);
-      setGarments([]);
+      if (err.response && err.response.status === 404) {
+        setGarments([]);
+      } else {
+        setError(true);
+        setGarments([]);
+      }
     } finally {
       setLoading(false);
     }

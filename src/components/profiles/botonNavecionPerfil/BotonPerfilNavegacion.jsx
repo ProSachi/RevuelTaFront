@@ -1,18 +1,32 @@
-// src/components/profiles/botonNavecionPerfil/BotonPerfilNavegacion.jsx
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './BotonPerfilNavegacionEstilo.module.css';
 
 const BotonPerfilNavegacion = ({ 
   direccion, 
-  icono: IconComponent, // Renombrado directamente en los parámetros
+  icono: IconComponent, 
   nombre, 
+  onClick,
   colorBase = '#FFFFFF', 
   colorActivo = '#1F5E4A',
   colorTextoBase = '#121212',
   colorTextoActivo = '#FFFFFF',
   state
 }) => {
+  if (onClick) {
+    return (
+      <div>
+        <button
+          type="button"
+          onClick={onClick}
+          className={styles.boton}
+        >
+          {IconComponent && <IconComponent className={styles.icono} />}
+          <span>{nombre}</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <NavLink

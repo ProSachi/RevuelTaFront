@@ -1,0 +1,100 @@
+.paginaContenedor {
+  min-height: 100vh;
+  background-color: var(--color-paper, #f6f2e9);
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.tarjetaPublicacion {
+  width: 100%;
+  max-width: 820px;
+  background-color: var(--color-white, #ffffff);
+  border: 1px solid var(--color-line, #ded6c5);
+  border-radius: var(--radius-lg, 12px);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(21, 32, 27, 0.12));
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .tarjetaPublicacion {
+    padding: 1.5rem;
+  }
+}
+
+.tituloPrincipal {
+  font-family: var(--font-heading, serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-ink, #15201b);
+}
+
+.formularioPrincipal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.seccionBloque {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.alertaError {
+  padding: 0.85rem 1rem;
+  background-color: #fee2e2;
+  border-left: 4px solid var(--color-error, #d32f2f);
+  color: #991b1b;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.accionesFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line, #ded6c5);
+}
+
+.btnCancelar {
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid var(--color-line, #ded6c5);
+  background-color: transparent;
+  color: var(--color-ink, #15201b);
+  border-radius: var(--radius-md, 8px);
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.btnCancelar:hover {
+  background-color: var(--color-paper, #f6f2e9);
+}
+
+.btnPublicar {
+  padding: 0.75rem 1.75rem;
+  background-color: var(--color-pine, #1f5e4a);
+  color: var(--color-white, #ffffff);
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.2s ease);
+}
+
+.btnPublicar:hover {
+  background-color: #164637;
+}

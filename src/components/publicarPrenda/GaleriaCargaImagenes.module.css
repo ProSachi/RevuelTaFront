@@ -1,0 +1,170 @@
+.galeriaContenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.zonaArrastre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2.25rem 1.5rem;
+  border: 2px dashed var(--color-line, #ded6c5);
+  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-paper-2, #efe9dc);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.zonaArrastreActiva {
+  border-color: var(--color-pine, #1f5e4a);
+  background-color: #e5f0eb;
+}
+
+.iconoSubida {
+  width: 3rem;
+  height: 3rem;
+  color: var(--color-pine, #1f5e4a);
+  display: grid;
+  place-content: center;
+  background-color: var(--color-white, #ffffff);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.08));
+}
+
+.iconoSubida svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.tituloZona {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-ink, #15201b);
+}
+
+.descripcionZona {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.875rem;
+  color: #55635b;
+  max-width: 420px;
+}
+
+.btnSeleccionar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background-color: var(--color-pine, #1f5e4a);
+  color: var(--color-white, #ffffff);
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.2s ease);
+}
+
+.btnSeleccionar:hover {
+  background-color: #164637;
+}
+
+.textoOpcional {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.85rem;
+  color: #6d7b74;
+}
+
+.formatosAceptados {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: #87948e;
+}
+
+.inputOculto {
+  display: none;
+}
+
+.grillaPrevisualizaciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.85rem;
+}
+
+.tarjetaImagen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  border: 1.5px solid var(--color-line, #ded6c5);
+  background-color: var(--color-white, #ffffff);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.08));
+}
+
+.imagenPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.btnEliminar {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  background-color: rgba(21, 32, 27, 0.75);
+  color: var(--color-white, #ffffff);
+  border: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.2s ease);
+}
+
+.btnEliminar:hover {
+  background-color: var(--color-error, #d32f2f);
+}
+
+.tarjetaAgregarMas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 2px dashed var(--color-line, #ded6c5);
+  border-radius: var(--radius-md, 8px);
+  background-color: transparent;
+  color: var(--color-pine, #1f5e4a);
+  cursor: pointer;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.tarjetaAgregarMas:hover {
+  border-color: var(--color-pine, #1f5e4a);
+  background-color: #f1f7f4;
+}
+
+.iconoMas {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
