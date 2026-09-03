@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import styles from "./SeguimientoEnvio.module.css"
 import { obtenerSeguimientoEnvio } from "../../services/seguimientoEnvioServicio";
 import { ArrowLeftRight, Store } from "lucide-react";
@@ -46,16 +47,18 @@ const SeguimientoEnvio = () => {
                 </button>
             )}
 
-            {modalPuntoAcopioAbierto && (
-                <LogicaPuntoAcopio
-                    isOpen={modalPuntoAcopioAbierto}
-                    onClose={() => setModalPuntoAcopioAbierto(false)}
-                    estadoLogistico="Pendiente"
-                    puntoRecogidaOriginal={puntosAcopio[0]}
-                    puntoEntregaOriginal={puntosAcopio[1]}
-                    todosLosPuntos={puntosAcopio}
-                />
-            )}
+            {modalPuntoAcopioAbierto &&
+                createPortal(
+                    <LogicaPuntoAcopio
+                        isOpen={modalPuntoAcopioAbierto}
+                        onClose={() => setModalPuntoAcopioAbierto(false)}
+                        estadoLogistico="Pendiente"
+                        puntoRecogidaOriginal={puntosAcopio[0]}
+                        puntoEntregaOriginal={puntosAcopio[1]}
+                        todosLosPuntos={puntosAcopio}
+                    />,
+                    document.body
+                )}
         </div>
     )
 }
