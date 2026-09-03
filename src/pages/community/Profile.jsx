@@ -3,7 +3,7 @@ import { Outlet, useParams } from 'react-router-dom';
 import ImagenPerfil from '../../components/profiles/imagenPerfil/ImagenPerfil';
 import Verificado from '../../components/profiles/verificacion/Verificado';
 import { MdEdit } from "react-icons/md";
-import { FaStar, FaExclamationTriangle, FaShoppingBag, FaUser, FaUserCircle } from "react-icons/fa";
+import { FaStar, FaExclamationTriangle, FaShoppingBag, FaUserCircle } from "react-icons/fa";
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import BotonPerfilNavegacion from '../../components/profiles/botonNavecionPerfil/BotonPerfilNavegacion';
 import TarjetaEstadisticaPerfil from '../../components/profiles/tarjetaEstadisticaPerfil/TarjetaEstadisticaPerfil';
@@ -19,6 +19,9 @@ import { exchangeServices } from '../../services/exchangeServices/exchangeServic
 import { reportServices } from '../../services/reportServices/resportServices';
 import LoadingComunity from '../../components/profiles/loading/LoadingComunity';
 import MensajeError from '../../components/profiles/mensajeError/MensajeError';
+import imagenError from '../../assets/errorserver.jpeg';
+import VentanaModalReportarVendedor from '../../components/pages/VentanaModalReportarVendedor/VentanaModalReportarVendedor';
+import api from '../../services/api';
 
 const Profile = () => {
 
@@ -46,6 +49,16 @@ const Profile = () => {
     const [error, setError] = useState(false);
     const [average, setAverage] = useState(0);
     const [verified, setVerified] = useState(false);
+    const [modalReporteAbierto, setModalReporteAbierto] = useState(false);
+
+    const handleCerrarReporte = () => {
+        setModalReporteAbierto(false);
+    };
+
+    const handleEnviarReporte = async (datos) => {
+        await api.post('/reportes', datos);
+        setModalReporteAbierto(false);
+    };
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -54,39 +67,47 @@ const Profile = () => {
             console.log(id);
 
             try {
-                if (connectedUser?.id === String(id)) {
+                if (connectedUser?.id === String(id) || connectedUser?.Id === String(id)) {
                     setMyProfile(true);
-                    setVerified(connectedUser?.activo && connectedUser.activo)
+                    setVerified(Boolean(connectedUser?.activo));
                 } else {
                     const data = await userServices.getById(id);
                     setOtherProfile(data);
-                    setVerified(otherProfile?.activo && otherProfile.activo)
+                    setVerified(Boolean(data?.activo));
                 }
 
-                const ratingsResponse = await ratingServices.getAllRatingsForUserId(id);
-
-                if (ratingsResponse && ratingsResponse.length > 0) {
-
-                    const totalPuntaje = ratingsResponse.reduce((acumulado, rating) => acumulado + rating.puntaje, 0);
-
-                    const promedioCalculado = totalPuntaje / ratingsResponse.length;
-
-                    setAverage(promedioCalculado);
-
-                } else {
-
+                try {
+                    const ratingsResponse = await ratingServices.getAllRatingsForUserId(id);
+                    if (ratingsResponse && ratingsResponse.length > 0) {
+                        const totalPuntaje = ratingsResponse.reduce((acumulado, rating) => acumulado + rating.puntaje, 0);
+                        setAverage(totalPuntaje / ratingsResponse.length);
+                    } else {
+                        setAverage(0);
+                    }
+                } catch {
                     setAverage(0);
-
                 }
 
-                const ordersData = await orderServices.getOrderForSeller(id);
-                setOrders(ordersData?.data || ordersData || []);
+                try {
+                    const ordersData = await orderServices.getOrderForSeller(id);
+                    setOrders(ordersData?.data || ordersData || []);
+                } catch {
+                    setOrders([]);
+                }
 
-                const exchangeData = await exchangeServices.getExchangeForUserId(id);
-                setExchange(exchangeData?.data || exchangeData || []);
+                try {
+                    const exchangeData = await exchangeServices.getExchangeForUserId(id);
+                    setExchange(exchangeData?.data || exchangeData || []);
+                } catch {
+                    setExchange([]);
+                }
 
-                const reportData = await reportServices.getReportForReported(id);
-                setReport(reportData?.data || reportData || []);
+                try {
+                    const reportData = await reportServices.getReportForReported(id);
+                    setReport(reportData?.data || reportData || []);
+                } catch {
+                    setReport([]);
+                }
 
             } catch (err) {
                 setError(true);
@@ -175,7 +196,7 @@ const Profile = () => {
                                     nombre="Calificar"
                                 />
                                 <BotonPerfilNavegacion
-                                    direccion="reportar"
+                                    onClick={() => setModalReporteAbierto(true)}
                                     icono={FaExclamationTriangle}
                                     nombre="Reportar"
                                 />
@@ -203,6 +224,14 @@ const Profile = () => {
                 </div>
                 <Outlet context={{ id, myProfile }} />
             </div>
+
+            {modalReporteAbierto && (
+                <VentanaModalReportarVendedor
+                    vendedor={otherProfile}
+                    onCerrar={handleCerrarReporte}
+                    onEnviarReporte={handleEnviarReporte}
+                />
+            )}
         </div>
     );
 };

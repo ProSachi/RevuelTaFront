@@ -42,11 +42,12 @@ const ResenasPropias = () => {
         setReviews(response);
 
       } catch (error) {
-
-        console.error('Error fetching reviews:', error);
-        setError(true);
-        setReviews([]);
-
+        if (error.response && error.response.status === 404) {
+          setReviews([]);
+        } else {
+          setError(true);
+          setReviews([]);
+        }
       } finally {
 
         setLoading(false);

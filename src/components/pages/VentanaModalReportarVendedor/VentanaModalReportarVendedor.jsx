@@ -3,7 +3,7 @@ import FormularioReporteVendedor from "../FormularioReportarVendedor/FormularioR
 import styles from "./VentanaModalReportarVendedor.module.css";
 
 const VentanaModalReportarVendedor = ({
-  vendedor = { nombre: "Carlos Pérez" },
+  vendedor = { vendedor },
   onCerrar = () => {},
   onEnviarReporte = () => {}
 }) => {
