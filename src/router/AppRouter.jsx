@@ -10,6 +10,7 @@ import RecuperarContrasenaPage from "../components/RecuperacionContraseña/Recup
 import Landing from "../pages/Landing"
 import Catalogo from "../pages/catalogo/Catalogo"
 import PaginaDetalleProducto from "../pages/PaginaDetalleProducto"
+import DetallePedido from "../pages/Pedidos/DetallePedido";
 
 const AppRouter = () => {
     return (
@@ -25,6 +26,7 @@ const AppRouter = () => {
                     <Route path={RUTAS.PUBLICAR_PRENDA} element={null}/>
                     <Route path={RUTAS.CATALOGO} element={<Catalogo />}/>
                     <Route path={RUTAS.DETALLE_PRODUCTO} element={<PaginaDetalleProducto />}/>
+                    <Route path={`${RUTAS.DETALLE_PEDIDO}/:pedidoId`} element={<DetallePedido />} />
                     <Route path={`${RUTAS.SEGUIMIENTO_ENVIO}/:pedidoId`} element={<SeguimientoEnvio />}/>
                 </Route>
                 <Route element={<AuthLayout />}>

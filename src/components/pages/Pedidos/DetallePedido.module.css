@@ -1,0 +1,144 @@
+.detalleContainer {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  padding: 32px 16px;
+  min-height: 100vh;
+}
+
+.contentWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.cardBox {
+  background-color: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(21, 32, 27, 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.badgeEstado {
+  background-color: var(--paper-2);
+  color: var(--ink);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.prendasGrid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.prendaCard {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex: 1;
+}
+
+.prendaImg {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+
+.transferIcon {
+  font-size: 1.5rem;
+  color: var(--moss);
+  text-align: center;
+  padding: 0 10px;
+}
+
+.entregasGrid {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.entregaCol {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.listRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--paper-2);
+  font-size: 0.95rem;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  margin-top: 10px;
+  border-top: 2px solid var(--line);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.actionsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.btnVolver {
+  background-color: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnVolver:hover {
+  background-color: var(--paper-2);
+}
+
+.btnRastrear {
+  background-color: var(--ink);
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btnRastrear:hover {
+  opacity: 0.9;
+}
