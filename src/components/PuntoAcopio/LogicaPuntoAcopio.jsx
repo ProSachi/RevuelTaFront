@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import ListadoPuntosAcopio from "./ListadoPuntoAcopio";
-import "../estilos/StylePuntoAcopio.css";
+import styles from "./PuntoAcopio.module.css";
 
 const PuntoAcopio = ({
-    isOpen,
+    isOpen = true,
     onClose,
     estadoLogistico = "Pendiente",
     puntoRecogidaOriginal,
     puntoEntregaOriginal,
     todosLosPuntos = []
 }) => {
-    if (!isOpen) return null;
-
+    const [modalAbierta, setModalAbierta] = useState(isOpen);
     const esPendiente = estadoLogistico === "Pendiente";
 
     const [puntoRecogidaSeleccionado, setPuntoRecogidaSeleccionado] = useState(puntoRecogidaOriginal);
     const [puntoEntregaSeleccionado, setPuntoEntregaSeleccionado] = useState(puntoEntregaOriginal);
     const [tipoPuntoActivo, setTipoPuntoActivo] = useState("Recogida");
+
+    if (!modalAbierta) return null;
 
     const puntoActivoActual = tipoPuntoActivo === "Recogida"
         ? puntoRecogidaSeleccionado
@@ -38,33 +39,43 @@ const PuntoAcopio = ({
     const handleConfirmar = () => {
         if (hayCambios) {
             alert("Nuevos puntos seleccionados aplicados con exito");
+            setModalAbierta(false);
+            if (typeof onClose === "function") {
+                onClose();
+            }
+        }
+    };
+
+    const handleCerrar = () => {
+        setModalAbierta(false);
+        if (typeof onClose === "function") {
             onClose();
         }
     };
 
     return (
-        <div className="modal-overlay">
-            <div className="modal-container">
+        <div className={styles["modal-overlay"]}>
+            <div className={styles["modal-container"]}>
 
-                <section className="modal-header">
+                <section className={styles["modal-header"]}>
                     <h2>Puntos de acopios</h2>
-                    <button className="btn-cerrar" onClick={onClose}>&times;</button>
+                    <button className={styles["btn-cerrar"]} onClick={handleCerrar}>&times;</button>
                 </section>
 
-                <section className="modal-estado">
+                <section className={styles["modal-estado"]}>
                     {esPendiente ? (
-                        <div className="mensaje-estado estado-verde">
+                        <div className={`${styles["mensaje-estado"]} ${styles["estado-verde"]}`}>
                             Si, estado = Pendiente. Puedes cambiar el punto de Acopio de entrega o recogida
                         </div>
                     ) : (
-                        <div className="mensaje-estado estado-rojo">
+                        <div className={`${styles["mensaje-estado"]} ${styles["estado-rojo"]}`}>
                             Si, estado ≠Pendiente. No podras cambiar el punto de Acopio de entrega o recogida
                         </div>
                     )}
                 </section>
 
-                <section className="opciones-puntos">
-                    <label className="opcion-radio">
+                <section className={styles["opciones-puntos"]}>
+                    <label className={styles["opcion-radio"]}>
                         <input
                             type="radio"
                             name="opcionPunto"
@@ -74,7 +85,7 @@ const PuntoAcopio = ({
                         <span>Recogida: <strong>{puntoRecogidaSeleccionado?.nombre}</strong></span>
                     </label>
 
-                    <label className="opcion-radio">
+                    <label className={styles["opcion-radio"]}>
                         <input
                             type="radio"
                             name="opcionPunto"
@@ -85,7 +96,7 @@ const PuntoAcopio = ({
                     </label>
                 </section>
 
-                <section className="modal-body">
+                <section className={styles["modal-body"]}>
                     <ListadoPuntosAcopio
                         puntos={todosLosPuntos}
                         puntoSeleccionado={puntoActivoActual}
@@ -94,9 +105,9 @@ const PuntoAcopio = ({
                     />
                 </section>
 
-                <section className="modal-footer">
+                <section className={styles["modal-footer"]}>
                     <button
-                        className="btn-confirmar"
+                        className={styles["btn-confirmar"]}
                         onClick={handleConfirmar}
                         disabled={!hayCambios}
                     >

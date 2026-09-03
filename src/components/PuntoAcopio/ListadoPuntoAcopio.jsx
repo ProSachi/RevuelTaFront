@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./PuntoAcopio.module.css";
 
 const ListadoPuntosAcopio = ({
     puntos = [],
@@ -13,29 +14,29 @@ const ListadoPuntosAcopio = ({
     );
 
     return (
-        <div className="listado-puntos-acopio">
+        <div className={styles["listado-puntos-acopio"]}>
 
-            <div className="buscador-container">
+            <div className={styles["buscador-container"]}>
                 <input
                     type="text"
                     placeholder="Buscar Punto de Acopio"
                     value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
-                    className="input-busqueda"
+                    className={styles["input-busqueda"]}
                 />
             </div>
 
-            <div className="puntos-lista">
+            <div className={styles["puntos-lista"]}>
                 {puntosFiltrados.map((punto) => {
                     const esSeleccionado = puntoSeleccionado && puntoSeleccionado.id === punto.id;
 
                     return (
                         <div
-                            className={`punto-card ${esSeleccionado ? "seleccionado" : ""} ${!puedeModificar ? "deshabilitado" : ""}`}
+                            className={`${styles["punto-card"]} ${esSeleccionado ? styles.seleccionado : ""} ${!puedeModificar ? styles.deshabilitado : ""}`}
                             key={punto.id}
                             onClick={() => puedeModificar && onSeleccionarPunto(punto)}
                         >
-                            <section className="punto-info-principal">
+                            <section className={styles["punto-info-principal"]}>
                                 <input
                                     type="radio"
                                     name="puntoRadio"
@@ -46,10 +47,10 @@ const ListadoPuntosAcopio = ({
                                 <img
                                     src={punto.imagen}
                                     alt={punto.nombre}
-                                    className="punto-imagen"
+                                    className={styles["punto-imagen"]}
                                 />
 
-                                <section className="punto-detalles">
+                                <section className={styles["punto-detalles"]}>
                                     <h3>{punto.nombre}</h3>
                                     <p>{punto.direccion}</p>
                                     <p>{punto.horario}</p>
@@ -58,7 +59,7 @@ const ListadoPuntosAcopio = ({
                             </section>
 
                             {punto.distintivo && (
-                                <span className="punto-distintivo">
+                                <span className={styles["punto-distintivo"]}>
                                     {punto.distintivo}
                                 </span>
                             )}
