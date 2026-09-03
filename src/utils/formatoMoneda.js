@@ -1,14 +1,8 @@
-/**
- * Formatea un valor numérico a moneda colombiana ($XX.XXX).
- * @param {number} valor
- * @returns {string}
- */
-export function formatoMoneda(valor) {
+export const formatearMoneda = (valor) => {
+  if (valor === undefined || valor === null) return '$0';
   return new Intl.NumberFormat('es-CO', {
     style: 'currency',
     currency: 'COP',
-    maximumFractionDigits: 0,
-  }).format(valor ?? 0)
-}
-
-export default formatoMoneda
+    minimumFractionDigits: 0
+  }).format(valor);
+};
