@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+/* Contenedor principal alineado al centro */
+.seccionVaciaContenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 3rem 1.25rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Tarjeta SVG flotante con borde redondeado y efecto de latido */
+.imagenVacio {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 1.25rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 1.5rem;
+  
+  /* Animación de latido */
+  animation: tarjetaLatido 2s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Latido continuo con sombra sutil de la paleta verde (#1F5E4A) */
+@keyframes tarjetaLatido {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(18, 18, 18, 0.06);
+    border-color: #E2E8F0;
+  }
+  14% {
+    transform: scale(1.04);
+    box-shadow: 0 12px 24px rgba(31, 94, 74, 0.2);
+    border-color: rgba(31, 94, 74, 0.35);
+  }
+  28% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(18, 18, 18, 0.06);
+  }
+  42% {
+    transform: scale(1.02);
+    box-shadow: 0 8px 18px rgba(31, 94, 74, 0.12);
+    border-color: rgba(31, 94, 74, 0.2);
+  }
+  70%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(18, 18, 18, 0.06);
+    border-color: #E2E8F0;
+  }
+}
+
+/* Bloque contenedor de textos */
+.contenidoTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 420px;
+  gap: 0.35rem;
+}
+
+/* Título destacado con tipografía Outfit */
+.tituloVacio {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #121212;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* Mensaje principal con tono cercano */
+.mensajePrincipal {
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: #4A5568;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mensaje secundario (guiño / paréntesis) con color de acento verde */
+.mensajeSecundario {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1F5E4A;
+  margin: 0;
+  font-style: italic;
+}

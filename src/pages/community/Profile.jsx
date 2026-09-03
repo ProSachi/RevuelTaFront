@@ -17,12 +17,14 @@ import { ratingServices } from '../../services/ratingServices/ratingServices';
 import { orderServices } from '../../services/OrderServices/orderServices';
 import { exchangeServices } from '../../services/exchangeServices/exchangeServices';
 import { reportServices } from '../../services/reportServices/resportServices';
+import LoadingComunity from '../../components/profiles/loading/LoadingComunity';
+import MensajeError from '../../components/profiles/mensajeError/MensajeError';
 
 const Profile = () => {
 
     {/* modelo response de usuario
         {
-          Id : null,
+          id : null,
           nombre : null,
           correo : null,
           rol : null,
@@ -33,7 +35,7 @@ const Profile = () => {
     */}
 
     const { id } = useParams();
-    const { connectedUser } = useConnectedUser;
+    const { connectedUser } = useConnectedUser();
     const [myProfile, setMyProfile] = useState(false);
     const [otherProfile, setOtherProfile] = useState({});
     const [ratings, setRatings] = useState({});
@@ -47,24 +49,27 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchUserProfile = async () => {
+
+            { /* if (!id || id === 'undefined' || id === 'perfil') return; */ }
+            console.log(id);
+
             try {
                 if (connectedUser?.id === String(id)) {
                     setMyProfile(true);
-                    setVerified(connectedUser.activo)
+                    setVerified(connectedUser?.activo && connectedUser.activo)
                 } else {
                     const data = await userServices.getById(id);
                     setOtherProfile(data);
-                    setVerified(otherProfile.activo)
+                    setVerified(otherProfile?.activo && otherProfile.activo)
                 }
 
-                const response = await ratingServices.getAllRatingsForUserId(id);
-                const ratings = response.data;
+                const ratingsResponse = await ratingServices.getAllRatingsForUserId(id);
 
-                if (ratings && ratings.length > 0) {
+                if (ratingsResponse && ratingsResponse.length > 0) {
 
-                    const totalPuntaje = ratings.reduce((acumulado, rating) => acumulado + rating.puntaje, 0);
+                    const totalPuntaje = ratingsResponse.reduce((acumulado, rating) => acumulado + rating.puntaje, 0);
 
-                    const promedioCalculado = totalPuntaje / ratings.length;
+                    const promedioCalculado = totalPuntaje / ratingsResponse.length;
 
                     setAverage(promedioCalculado);
 
@@ -74,14 +79,14 @@ const Profile = () => {
 
                 }
 
-                response = await orderServices.getOrderForSeller(id);
-                setOrders(response.data);
+                const ordersData = await orderServices.getOrderForSeller(id);
+                setOrders(ordersData?.data || ordersData || []);
 
-                response = await exchangeServices.getExchangeForUserId(id);
-                setExchange(response.data);
+                const exchangeData = await exchangeServices.getExchangeForUserId(id);
+                setExchange(exchangeData?.data || exchangeData || []);
 
-                response = await reportServices.getReportForReported(id);
-                setReport(response.data);
+                const reportData = await reportServices.getReportForReported(id);
+                setReport(reportData?.data || reportData || []);
 
             } catch (err) {
                 setError(true);
@@ -90,38 +95,59 @@ const Profile = () => {
             }
         };
 
-        fetchUserProfile();
-    }, [id]);
+        if (id) {
+            fetchUserProfile();
+        }
+
+    }, [id, connectedUser]);
+
+
+    // 1. Estado de carga
+    if (loading) {
+        return (
+            <div className={styles.seccionTabsAreaContenido}>
+                <LoadingComunity />;
+            </div>
+        );
+    }
+
+    // 2. Estado de error
+    if (error) {
+        return (
+            <div className={styles.seccionTabsAreaContenido}>
+                <MensajeError
+                    imagen={imagenError}
+                    alt={"Error al comunicarse con el servidor"}
+                    titulo={"¡ERROR CRITICO DEL SERVIDOR!"}
+                    mensajePrincipal={"Parece que hubo un problema al conectar con el servidor... Intentalo más tarde."}
+                    mensajeSecundario={"(Trabajamos para que esto no vuelva a suceder)"}
+                />
+            </div>
+        )
+    }
+
+    /* 3. perfil */
+
+    const activeUser = myProfile ? connectedUser : otherProfile;
 
     return (
         <div className={styles.perfilPaginaWrapper}>
             {/* Cabecera del perfil */}
             <div className={styles.cabeceraContenedor}>
-                {/* Columna Izquierda: Foto, Nombre, Fecha y Estrellas */}
                 <div className={styles.columnaIzquierda}>
                     <div className={styles.avatarWrapper}>
-                        {
-                            myProfile ?
-                                (<ImagenPerfil imagen={connectedUser?.color_avatar || null} iconoFallback={FaUserCircle} nombreUsuario={connectedUser.nombre} />)
-                                :
-                                (<ImagenPerfil imagen={connectedUser?.color_avatar || null} iconoFallback={FaUserCircle} nombreUsuario={otherProfile.nombre} />)
-                        }
+                        <ImagenPerfil
+                            imagen={activeUser?.color_avatar || null}
+                            iconoFallback={FaUserCircle}
+                            nombreUsuario={activeUser?.nombre || 'Usuario'}
+                        />
                     </div>
 
                     <div className={styles.detallesUsuario}>
-
-                        {
-                            myProfile ?
-                                (<>
-                                    <h2 className={styles.nombreUsuario}>{connectedUser.nombre}</h2>
-                                    <span className={styles.miembroDesde}>Miembro desde: {connectedUser.fecha_registro}</span>
-                                </>)
-                                :
-                                (<>
-                                    <h2 className={styles.nombreUsuario}>{otherProfile.nombre}</h2>
-                                    <span className={styles.miembroDesde}>Miembro desde: {otherProfile.fecha_registro}</span>
-                                </>)
-                        }
+                        <h2 className={styles.nombreUsuario}>{activeUser?.nombre || 'Cargando...'}</h2>
+                        <span className={styles.miembroDesde}>
+                            Miembro desde: {activeUser?.fecha_registro || '2026'}
+                        </span>
 
                         <div className={styles.estrellasWrapper}>
                             <CalificacionEstrellas promedio={average} tamano="1.25rem" />
@@ -129,7 +155,6 @@ const Profile = () => {
                     </div>
                 </div>
 
-                {/* Columna Derecha: Badge de Verificado y Botones de Acción */}
                 <div className={styles.columnaDerecha}>
                     <div className={styles.verificadoBadge}>
                         <Verificado estaVerificado={verified} />
@@ -138,19 +163,19 @@ const Profile = () => {
                     <div className={styles.accionesBotones}>
                         {myProfile ? (
                             <BotonPerfilNavegacion
-                                direccion={`/editar/${id}`}
+                                direccion="editar"
                                 icono={MdEdit}
                                 nombre="Editar Perfil"
                             />
                         ) : (
                             <>
                                 <BotonPerfilNavegacion
-                                    direccion={`/calificar/${id}`}
+                                    direccion="calificar"
                                     icono={FaStar}
                                     nombre="Calificar"
                                 />
                                 <BotonPerfilNavegacion
-                                    direccion={`/reportar/${id}`}
+                                    direccion="reportar"
                                     icono={FaExclamationTriangle}
                                     nombre="Reportar"
                                 />
@@ -173,10 +198,10 @@ const Profile = () => {
             {/* Contenido Dinámico del Perfil */}
             <div className={styles.seccionTabsContenedor}>
                 <div className={styles.seccionTabsBarraNav}>
-                    <BotonPerfilNavegacion direccion={'/perfil/prendasPublicadas'} icono={null} nombre={'Prendas Publicadas'} />
-                    <BotonPerfilNavegacion direccion={'/perfil/resenas'} icono={null} nombre={'Reseñas'} />
+                    <BotonPerfilNavegacion direccion="prendasPublicadas" icono={null} nombre={'Prendas Publicadas'} />
+                    <BotonPerfilNavegacion direccion="resenas" icono={null} nombre={'Reseñas'} />
                 </div>
-                <Outlet />
+                <Outlet context={{ id, myProfile }} />
             </div>
         </div>
     );

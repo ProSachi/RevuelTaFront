@@ -1,4 +1,4 @@
-import apiRevueltaBack from '../apiRevueltaBack'
+import apiServer from '../apiRevueltaBack'
 
 export const ratingServices = {
 
@@ -10,7 +10,7 @@ export const ratingServices = {
         WHERE r.usuarioResenado.id = :idUsuario)
     */
     getAllRatingsForUserId: async (id) => {
-        const response = await apiRevueltaBack.get(`/calificaciones/usuario/${id}`);
+        const response = await apiServer.get(`/calificaciones/usuario/${id}`);
         return response.data;
     }
 
