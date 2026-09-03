@@ -71,6 +71,7 @@ const Profile = () => {
                 } else {
                     const data = await userServices.getById(id);
                     setOtherProfile(data);
+                    setMyProfile(false);
                     setVerified(Boolean(data?.activo));
                 }
 
