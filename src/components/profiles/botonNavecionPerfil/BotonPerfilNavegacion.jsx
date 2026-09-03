@@ -10,12 +10,14 @@ const BotonPerfilNavegacion = ({
   colorBase = '#FFFFFF', 
   colorActivo = '#1F5E4A',
   colorTextoBase = '#121212',
-  colorTextoActivo = '#FFFFFF'
+  colorTextoActivo = '#FFFFFF',
+  state
 }) => {
   return (
     <div>
       <NavLink
         to={direccion}
+        state={state}
         // Usamos la función de estilo de NavLink para alternar colores según el estado activo
         style={({ isActive }) => ({
           '--bg-actual': isActive ? colorActivo : colorBase,

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CalificacionEstrellas from '../estrellasCalificacion/CalificacionEstrellas';
 import styles from './TarjetaResena.module.css';
 import { FaUser } from 'react-icons/fa';
+import BotonPerfilNavegacion from '../botonNavecionPerfil/BotonPerfilNavegacion';
 
 const TarjetaResena = ({ fotoPerfil, nombrePerfil, promedio, titulo, comentario, direccion = '#' }) => {
   return (

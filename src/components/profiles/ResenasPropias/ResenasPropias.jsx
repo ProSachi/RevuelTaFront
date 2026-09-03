@@ -94,6 +94,7 @@ const ResenasPropias = () => {
         <div className={styles.resenasPropiasHeader}>
           <BotonPerfilNavegacion
             direccion={`/perfil/${id}/crear/reseña`}
+            state={{ backgroundLocation: location }}
             icono={FaPlusCircle}
             nombre={'Crear Reseña'}
             colorActivo="#1F5E4A"

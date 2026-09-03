@@ -146,7 +146,15 @@ const Profile = () => {
                     <div className={styles.detallesUsuario}>
                         <h2 className={styles.nombreUsuario}>{activeUser?.nombre || 'Cargando...'}</h2>
                         <span className={styles.miembroDesde}>
-                            Miembro desde: {activeUser?.fecha_registro || '2026'}
+                            Miembro desde: {
+                                new Intl.DateTimeFormat('es-CO', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric',
+                                    timeZone: 'UTC'
+                                }).format(new Date(activeUser?.fechaRegistro))
+
+                            }
                         </span>
 
                         <div className={styles.estrellasWrapper}>
@@ -164,6 +172,7 @@ const Profile = () => {
                         {myProfile ? (
                             <BotonPerfilNavegacion
                                 direccion="editar"
+                                state={{ backgroundLocation: location }}
                                 icono={MdEdit}
                                 nombre="Editar Perfil"
                             />
@@ -171,11 +180,13 @@ const Profile = () => {
                             <>
                                 <BotonPerfilNavegacion
                                     direccion="calificar"
+                                    state={{ backgroundLocation: location }}
                                     icono={FaStar}
                                     nombre="Calificar"
                                 />
                                 <BotonPerfilNavegacion
                                     direccion="reportar"
+                                    state={{ backgroundLocation: location }}
                                     icono={FaExclamationTriangle}
                                     nombre="Reportar"
                                 />
@@ -198,8 +209,8 @@ const Profile = () => {
             {/* Contenido Dinámico del Perfil */}
             <div className={styles.seccionTabsContenedor}>
                 <div className={styles.seccionTabsBarraNav}>
-                    <BotonPerfilNavegacion direccion="prendasPublicadas" icono={null} nombre={'Prendas Publicadas'} />
-                    <BotonPerfilNavegacion direccion="resenas" icono={null} nombre={'Reseñas'} />
+                    <BotonPerfilNavegacion direccion="prendasPublicadas" state={""} icono={null} nombre={'Prendas Publicadas'} />
+                    <BotonPerfilNavegacion direccion="resenas" state={""} icono={null} nombre={'Reseñas'} />
                 </div>
                 <Outlet context={{ id, myProfile }} />
             </div>
