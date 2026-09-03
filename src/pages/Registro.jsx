@@ -1,5 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth.js'
+import { RUTAS } from '../constants/rutas'
 import FormularioRegistro from '../components/autenticacion/FormularioRegistro/FormularioRegistro.jsx'
 import styles from './Registro.module.css'
 
@@ -11,7 +12,7 @@ export default function Registro() {
   const navigate = useNavigate()
 
   const handleRegistroExitoso = () => {
-    navigate('/carrito', { replace: true })
+    navigate(RUTAS.CARRITO, { replace: true })
   }
 
   return (
@@ -24,7 +25,7 @@ export default function Registro() {
             Ya tienes una cuenta activa como <strong>{usuario?.nombre || usuario?.correo}</strong>.
           </p>
           <div className={styles.accionesSesionActiva}>
-            <Link to="/carrito" className={styles.btnIr}>
+            <Link to={RUTAS.CARRITO} className={styles.btnIr}>
               Ir al Carrito
             </Link>
             <button type="button" className={styles.btnCerrar} onClick={cerrarSesion}>

@@ -10,6 +10,9 @@ import RecuperarContrasenaPage from "../components/RecuperacionContraseña/Recup
 import Landing from "../pages/Landing"
 import Catalogo from "../pages/catalogo/Catalogo"
 import PaginaDetalleProducto from "../pages/PaginaDetalleProducto"
+import Carrito from "../pages/Carrito"
+import Registro from "../pages/Registro"
+import MisTrueques from "../pages/MisTrueques"
 
 const AppRouter = () => {
     return (
@@ -19,16 +22,16 @@ const AppRouter = () => {
                     <Route path={RUTAS.LANDING_PAGE} element={< Landing />}/>
                     <Route path={RUTAS.PERFIL} element={null}/>
                     <Route path={RUTAS.PEDIDOS} element={<MisPedidos />}/>
-                    <Route path={RUTAS.TRUEQUES} element={null}/>
+                    <Route path={RUTAS.TRUEQUES} element={<MisTrueques />}/>
                     <Route path={RUTAS.CAMPANAS_DESCUENTOS} element={<DescuentosCampanas />} />
-                    <Route path={RUTAS.CARRITO} element={null}/>
+                    <Route path={RUTAS.CARRITO} element={<Carrito />}/>
                     <Route path={RUTAS.PUBLICAR_PRENDA} element={null}/>
                     <Route path={RUTAS.SEGUIMIENTO_ENVIO} element={<SeguimientoEnvio />}/>
                     <Route path={RUTAS.CATALOGO} element={<Catalogo />}/>
                     <Route path={RUTAS.DETALLE_PRODUCTO} element={<PaginaDetalleProducto />}/>
                 </Route>
                 <Route element={<AuthLayout />}>
-                    <Route path={RUTAS.REGISTRO} element={null}/>
+                    <Route path={RUTAS.REGISTRO} element={<Registro />}/>
                     <Route path={RUTAS.INICIAR_SESION} element={<InicioSesion />}/>
                 </Route>
                 <Route element={<AuthLayout />}>

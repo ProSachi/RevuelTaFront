@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { RUTAS } from '../constants/rutas'
 import ProductosCarrito from '../components/carrito/ProductosCarrito/ProductosCarrito.jsx'
 import ResumenPedido from '../components/carrito/ResumenPedido/ResumenPedido.jsx'
 import ProductosRelacionados from '../components/carrito/ProductosRelacionados/ProductosRelacionados.jsx'
@@ -19,7 +20,7 @@ import styles from './Carrito.module.css'
 // el resumen del pedido y los productos sugeridos.
 export default function Carrito() {
   const [productos, setProductos] = useState(productosCarritoMock)
-  const [idAEliminar, setIdAEliminar] = useState(null)
+  const [idAEliminar, setIdAEgitliminar] = useState(null)
   const [productoTruequeVisible, setProductoTruequeVisible] = useState(null)
   const [aviso, setAviso] = useState('')
   const [descuentoAplicado, setDescuentoAplicado] = useState(0)
@@ -94,7 +95,7 @@ export default function Carrito() {
       {productos.length === 0 ? (
         <div className={styles.vacio}>
           <p>Tu carrito está actualmente vacío.</p>
-          <Link to="/catalogo" className={styles.btnIrCatalogo}>
+          <Link to={RUTAS.CATALOGO} className={styles.btnIrCatalogo}>
             Ir al catálogo
           </Link>
         </div>
