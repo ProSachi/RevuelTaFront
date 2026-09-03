@@ -1,0 +1,70 @@
+.acciones {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.accionesColumna {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.accionesFila {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btnPrincipal {
+  background: var(--clay);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1.15rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.15s;
+}
+
+.btnPrincipal:hover {
+  opacity: 0.92;
+}
+
+.btnSecundario {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1.15rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btnSecundario:hover {
+  background: var(--paper-2);
+}
+
+.btnPeligroOutline {
+  background: #ffffff;
+  border: 1px solid var(--clay);
+  color: var(--clay);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1.15rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btnPeligroOutline:hover {
+  background: rgba(232, 100, 60, 0.08);
+}

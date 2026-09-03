@@ -1,0 +1,19 @@
+.root {
+  background-color: #ffffff;
+}
+.title {
+  color: var(--ink);
+}
+.iconWrap {
+  width: 32px;
+  height: 32px;
+  background-color: var(--paper);
+  color: var(--pine);
+}
+.label {
+  color: var(--ink);
+  opacity: 0.75;
+}
+.points {
+  color: var(--moss);
+}

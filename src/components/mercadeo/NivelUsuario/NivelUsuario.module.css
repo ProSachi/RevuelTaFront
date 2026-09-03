@@ -1,0 +1,33 @@
+.root {
+  background-color: #ffffff;
+}
+.iconWrap {
+  width: 48px;
+  height: 48px;
+  background-color: var(--paper-2);
+  color: var(--pine);
+  font-size: 1.25rem;
+}
+.levelTitle {
+  color: var(--ink);
+}
+.button {
+  background-color: var(--paper-2);
+  color: var(--ink);
+}
+.button:hover {
+  background-color: var(--line);
+}
+.helper {
+  color: var(--ink);
+  opacity: 0.65;
+}
+
+.progressTrack {
+  height: 8px;
+  background-color: var(--paper);
+}
+
+.progressBar {
+  background-color: var(--moss);
+}

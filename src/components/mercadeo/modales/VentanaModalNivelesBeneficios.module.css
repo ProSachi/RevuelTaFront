@@ -1,0 +1,12 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  color: var(--ink);
+}
+
+.badge {
+  background-color: var(--pine);
+  color: #ffffff;
+}

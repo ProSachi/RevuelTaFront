@@ -1,0 +1,153 @@
+.ventanaModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 4.1rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.contenidoVentanaModal {
+    width: min(560px, 100%);
+    max-height: 85%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-sizing: border-box;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(21, 32, 27, 0.2);
+    overflow-y: auto;
+}
+
+.encabezadoVentanaModal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.encabezadoVentanaModal h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-ink);
+}
+
+.botonCerrarModal {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 4px;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.botonCerrarModal:hover {
+    background-color: var(--color-line);
+    color: var(--color-pine);
+}
+
+.listaResenas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.bloqueResena {
+    padding: 1.25rem;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 14px rgba(21, 32, 27, 0.06);
+}
+
+.vendedorResena h3 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-ink);
+}
+
+.calificacionResena {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 0.75rem;
+}
+
+.estrella {
+    width: 22px;
+    height: 22px;
+    color: #c9cdc9;
+    fill: #c9cdc9;
+    pointer-events: none;
+}
+
+.estrellaRellena {
+    color: var(--color-marigold);
+    fill: var(--color-marigold);
+}
+
+.comentarioResena {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-ink);
+}
+
+.fotosResena {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.fotoResena {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+
+    .ventanaModal {
+        top: 7rem;
+    }
+
+    .contenidoVentanaModal {
+        width: calc(100% - 1.5rem);
+        max-height: calc(100% - 1.5rem);
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .encabezadoVentanaModal h2 {
+        font-size: 24px;
+    }
+
+    .fotoResena {
+        width: 76px;
+        height: 76px;
+    }
+}

@@ -1,0 +1,23 @@
+.root {
+  background-color: #ffffff;
+}
+.title {
+  color: var(--ink);
+}
+.iconWrap {
+  width: 36px;
+  height: 36px;
+  background-color: var(--paper-2);
+  color: var(--marigold);
+}
+.value {
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+.button {
+  background-color: var(--paper-2);
+  color: var(--ink);
+}
+.button:hover {
+  background-color: var(--line);
+}

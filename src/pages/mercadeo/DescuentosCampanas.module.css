@@ -1,0 +1,16 @@
+.root {
+  font-family: var(--font-body);
+}
+
+.title {
+  font-family: var(--font-display);
+  color: var(--ink);
+}
+
+.btnRecuperar {
+  border: 1px solid var(--color-pine);
+  background-color: #ffffff;
+  color: var(--color-pine);
+  font-family: var(--font-body);
+  box-shadow: none;
+}

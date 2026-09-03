@@ -1,0 +1,49 @@
+:root {
+    /* Kit oficial ReVuelta */
+    --ink: #15201b;      /* Texto / secciones oscuras */
+    --pine: #1f5e4a;     /* Primario (front) */
+    --moss: #3e9c7a;     /* Acentos / detalles */
+    --marigold: #f2a03d; /* Énfasis / etiquetas de lote */
+    --clay: #e8643c;     /* CTA / back */
+    --paper: #f6f2e9;    /* Fondo principal */
+    --paper-2: #efe9dc;  /* Fondos secundarios */
+    --line: #ded6c5;     /* Bordes / separadores */
+
+    /* Compatibilidad con prefijos previos */
+    --color-ink: var(--ink);
+    --color-pine: var(--pine);
+    --color-moss: var(--moss);
+    --color-marigold: var(--marigold);
+    --color-clay: var(--clay);
+    --color-paper: var(--paper);
+    --color-paper-2: var(--paper-2);
+    --color-line: var(--line);
+
+    /* Alias semánticos (catálogo / detalle de producto / modales / tarjetas) */
+    --accent: var(--pine);
+    --accent-bg: rgba(31, 94, 74, 0.08);
+    --accent-border: var(--moss);
+    --border: var(--line);
+    --text: var(--ink);
+    --text-h: var(--ink);
+    --bg: #ffffff;
+    --color-white: #ffffff;
+    --shadow: 0 4px 12px rgba(21, 32, 27, 0.08);
+    --social-bg: var(--paper-2);
+
+    /* Estados */
+    --success: var(--moss);
+    --warning: var(--marigold);
+    --danger: var(--clay);
+
+    /* Tipografías */
+    --font-display: "Fraunces", serif;
+    --font-heading: "Fraunces", serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+    --font-mono: "Space Mono", monospace;
+
+    /* Espaciados base */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+}

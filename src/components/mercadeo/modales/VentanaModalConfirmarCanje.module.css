@@ -1,0 +1,26 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  color: var(--ink);
+}
+
+.mensajeExito {
+  font-weight: 700;
+  color: var(--moss);
+}
+
+.mensajeError {
+  font-weight: 700;
+  color: var(--clay);
+}
+
+.btnConfirmar {
+  background-color: var(--pine);
+  color: #ffffff;
+}
+
+.btnConfirmar:hover {
+  background-color: var(--moss);
+}

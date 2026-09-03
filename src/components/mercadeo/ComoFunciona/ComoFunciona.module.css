@@ -1,0 +1,16 @@
+.root {
+  background-color: #ffffff;
+}
+.title {
+  color: var(--ink);
+}
+.step {
+  width: 26px;
+  height: 26px;
+  background-color: var(--paper-2);
+  color: var(--ink);
+}
+.text {
+  color: var(--ink);
+  opacity: 0.75;
+}

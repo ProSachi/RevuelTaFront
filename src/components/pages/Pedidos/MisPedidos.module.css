@@ -1,0 +1,398 @@
+.misPedidos {
+    min-height: 100vh;
+    padding: 48px 32px 64px;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+}
+
+.misPedidosContenido {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}
+
+.misPedidos h1 {
+    margin: 0 0 32px;
+
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -1px;
+
+    color: var(--color-ink);
+}
+
+.controlesPedidos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 32px;
+}
+
+.controlesPedidos button {
+    padding: 10px 18px;
+
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+
+    background-color: transparent;
+    color: var(--color-ink);
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.controlesPedidos button:hover {
+    border-color: var(--color-pine);
+    color: var(--color-pine);
+}
+
+.controlesPedidos button.activo {
+    background-color: var(--color-pine);
+    border-color: var(--color-pine);
+    color: white;
+}
+
+.controlesPedidos button:active {
+    transform: scale(0.98);
+}
+
+.controlesPedidos input {
+    flex: 1 1 280px;
+
+    min-width: 240px;
+
+    padding: 12px 16px;
+
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+
+    background-color: #ffffff;
+    color: var(--color-ink);
+
+    font-family: var(--font-body);
+    font-size: 14px;
+
+    outline: none;
+}
+
+.controlesPedidos input::placeholder {
+    color: #7c827d;
+}
+
+.controlesPedidos input:focus {
+    border-color: var(--color-moss);
+    box-shadow: 0 0 0 3px rgba(62, 156, 122, 0.12);
+}
+
+.listadoPedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.pedidoCard {
+    padding: 24px;
+
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 4px 14px rgba(21, 32, 27, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pedidoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid var(--color-line);
+}
+
+.pedidoInfo h2 {
+    margin: 0 0 6px;
+
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 700;
+
+    color: var(--color-ink);
+}
+
+.pedidoFecha {
+    margin: 0;
+
+    font-size: 13px;
+    color: #6f756f;
+}
+
+.pedidoEstado {
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    background-color: var(--color-paper-2);
+    color: var(--color-pine);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.prenda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 0;
+}
+
+.prendaInfo h3 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: var(--color-ink);
+}
+
+.prendaImagen {
+    width: 84px;
+    height: 84px;
+
+    object-fit: cover;
+
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+}
+
+.prendaInfo p {
+    margin: 0;
+    font-size: 13px;
+    color: #747a75;
+}
+
+.cantidadPrendas {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6f756f;
+}
+
+.prendaPrecio {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--color-pine);
+}
+
+.pedidoAcciones {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.pedidoAcciones .miLink {
+    padding: 10px 16px;
+    text-decoration: none;
+
+    border: 1px solid var(--color-pine);
+    border-radius: 8px;
+
+    background-color: var(--color-pine);
+    color: #ffffff;
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.pedidoAcciones .miLink:hover {
+    background-color: #174638;
+    color: white;
+}
+
+.pedidoAcciones .miLink:last-child {
+    margin: 0;
+    background-color: var(--color-clay);
+    border-color: var(--color-clay);
+    color: white;
+}
+
+.pedidoAcciones .miLink:last-child:hover {
+    background-color: #d95732;
+    border-color: #d95732;
+}
+
+.pedidoTrueque {
+    padding: 8px 0;
+}
+
+.truequeIndicador {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 4px auto;
+
+    border-radius: 50%;
+
+    background-color: var(--color-paper-2);
+    color: var(--color-pine);
+
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.saldoTrueque {
+    margin-top: 18px;
+
+    padding: 12px 16px;
+
+    border-radius: 8px;
+
+    background-color: var(--color-paper-2);
+
+    color: var(--color-pine);
+
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.selector {
+    padding: 10px 40px 10px 16px;
+    border: 1.5px solid #1f3d2b;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+    color: #1f3d2b;
+
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    appearance: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231f3d2b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.controlesPedidos button.inactivo{
+    background-color: #ffffff;
+}
+
+.selector:focus {
+    outline: none;
+    border-color: #e8643c;
+    box-shadow: 0 0 0 3px rgba(232, 100, 60, 0.15);
+}
+
+.controlSelect  {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controlSelect  label {
+    color: #1f3d2b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sinPedidos {
+    padding: 40px 24px;
+
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.sinPedidos h2 {
+    margin: 0 0 8px;
+
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-ink);
+}
+
+.sinPedidos p {
+    margin: 0;
+    font-size: 14px;
+    color: #6f756f;
+}
+
+@media (max-width: 700px) {
+
+    .misPedidos {
+        padding: 32px 16px 48px;
+    }
+
+    .misPedidos h1 {
+        font-size: 38px;
+    }
+
+    .pedidoHeader {
+        flex-direction: column;
+    }
+
+    .pedidoEstado {
+        align-self: flex-start;
+    }
+
+    .prenda {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .pedidoAcciones {
+        justify-content: flex-start;
+    }
+}

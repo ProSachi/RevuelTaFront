@@ -1,0 +1,69 @@
+.contenedorMapa {
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.mapa {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.botonVolverPunto {
+    width: 29px;
+    height: 29px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2.7rem;
+    left: 0.5rem;
+    background-color: #fff;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 2px rgb(0 0 0 / 8%);
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+}
+
+.botonVolverPunto svg {
+    width: 20px;
+    height: 20px;
+    color: #333;
+    stroke-width: 2;
+}
+
+.botonVolverPunto:hover {
+    background-color: #f2f2f2;
+}
+
+.botonVolverPunto:hover svg {
+    color: var(--color-pine);
+}
+
+@media (max-width: 768px) {
+    .mapa {
+        height: 240px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mapa {
+        height: 210px;
+    }
+
+    .botonVolverPunto {
+        width: 28px;
+        height: 28px;
+    }
+
+    .botonVolverPunto svg {
+        width: 18px;
+        height: 18px;
+    }
+}

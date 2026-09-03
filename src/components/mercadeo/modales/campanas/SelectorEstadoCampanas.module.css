@@ -1,0 +1,14 @@
+.bar {
+  border-color: var(--line);
+}
+
+.tab {
+  color: var(--line);
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+}
+
+.tabActivo {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}

@@ -1,0 +1,25 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  color: var(--ink);
+}
+
+.itemIcon {
+  color: var(--pine);
+}
+
+.itemPuntos {
+  font-weight: 700;
+  color: var(--moss);
+}
+
+.btnCerrar {
+  background-color: var(--paper-2);
+  color: var(--ink);
+}
+
+.btnCerrar:hover {
+  background-color: var(--line);
+}

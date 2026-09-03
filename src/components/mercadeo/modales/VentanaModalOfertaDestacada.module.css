@@ -1,0 +1,15 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  color: var(--ink);
+}
+
+.imagen {
+  width: 100%;
+  border-radius: var(--radius-md);
+  max-height: 220px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}

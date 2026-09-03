@@ -1,0 +1,334 @@
+.botonAbrirMapaModal {
+    width: 29px;
+    height: 29px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: #fff;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 2px rgb(0 0 0 / 8%);
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+}
+
+.botonAbrirMapaModal svg {
+    width: 20px;
+    height: 20px;
+    color: #333;
+    stroke-width: 2;
+}
+
+.botonAbrirMapaModal:hover {
+    background-color: #f2f2f2;
+}
+
+.botonAbrirMapaModal:hover svg {
+    color: var(--color-pine);
+}
+
+.modalMapa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 4.1rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.contenidoModalMapa {
+    width: 80%;
+    height: 80%;
+    padding: 1.25rem;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 1rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+}
+
+.encabezadoModalMapa {
+    min-height: 60px;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.encabezadoModalMapa h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    overflow-wrap: anywhere;
+}
+
+.botonCerrarModal {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.botonCerrarModal:hover {
+    background-color: var(--color-paper-2);
+}
+
+.contenedorMapaModal {
+    min-width: 0;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.mapaModal {
+    width: 100%;
+    height: 100%;
+}
+
+.botonCerrarMapaModal {
+    width: 29px;
+    height: 29px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: #fff;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 2px rgb(0 0 0 / 8%);
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+}
+
+.botonCerrarMapaModal:hover {
+    background-color: #f2f2f2;
+}
+
+.botonCerrarMapaModal svg,
+.botonVolverPuntoModal svg {
+    width: 20px;
+    height: 20px;
+    color: #333;
+    stroke-width: 2;
+}
+
+.botonCerrarMapaModal:hover svg {
+    color: var(--color-pine);
+}
+
+.botonVolverPuntoModal {
+    width: 29px;
+    height: 29px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2.7rem;
+    left: 0.5rem;
+    background-color: #fff;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 2px rgb(0 0 0 / 8%);
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+}
+
+.botonVolverPuntoModal:hover {
+    background-color: #f2f2f2;
+}
+
+.botonVolverPuntoModal svg {
+    color: #333;
+}
+
+.botonVolverPuntoModal:hover svg {
+    color: var(--color-pine);
+}
+
+:global(.maplibregl-ctrl-group button:hover .maplibregl-ctrl-icon) {
+    filter: invert(31%) sepia(17%) saturate(1396%) hue-rotate(108deg) brightness(86%) contrast(89%);
+}
+
+.panelRuta {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.35rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 4rem;
+    z-index: 3;
+}
+
+.contenidoPanelRuta {
+    width: 360px;
+    min-width: 0;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 15%);
+}
+
+.contenidoPanelRutaOculto {
+    display: none;
+}
+
+.botonAlternarPanel {
+    width: 32px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: #fff;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+    cursor: pointer;
+}
+
+.botonAlternarPanel svg {
+    width: 18px;
+    height: 18px;
+    color: #333;
+}
+
+.botonAlternarPanel:hover svg {
+    color: var(--color-pine);
+}
+
+.errorRuta {
+    margin-top: 0.5rem;
+    display: block;
+    font-size: 0.78rem;
+    color: var(--color-clay);
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1024px) {
+    .contenidoModalMapa {
+        width: 90%;
+        height: 86%;
+    }
+
+    .contenidoPanelRuta {
+        width: 330px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modalMapa {
+        top: 7rem;
+    }
+
+    .contenidoModalMapa {
+        width: calc(100% - 1.5rem);
+        height: calc(100% - 1.5rem);
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .encabezadoModalMapa {
+        min-height: 48px;
+        padding-right: 0;
+    }
+
+    .encabezadoModalMapa h2 {
+        font-size: 1.35rem;
+    }
+
+    .panelRuta {
+        right: 0.5rem;
+        left: 3rem;
+    }
+
+    .contenidoPanelRuta {
+        width: auto;
+        max-width: 330px;
+        min-width: 0;
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenidoModalMapa {
+        width: 100%;
+        height: 100%;
+        padding: 0.75rem;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .encabezadoModalMapa {
+        min-height: 44px;
+    }
+
+    .encabezadoModalMapa h2 {
+        font-size: 1.2rem;
+    }
+
+    .botonCerrarModal {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contenedorMapaModal {
+        border-radius: 4px;
+    }
+
+    .panelRuta {
+        right: 0.4rem;
+        left: 3rem;
+        gap: 0.25rem;
+    }
+
+    .contenidoPanelRuta {
+        width: auto;
+        max-width: none;
+        padding: 0.65rem;
+        flex: 1;
+    }
+
+    .botonAlternarPanel {
+        width: 30px;
+        height: 34px;
+    }
+
+    .botonCerrarMapaModal,
+    .botonVolverPuntoModal {
+        width: 28px;
+        height: 28px;
+    }
+
+    .botonCerrarMapaModal svg,
+    .botonVolverPuntoModal svg {
+        width: 18px;
+        height: 18px;
+    }
+}

@@ -1,0 +1,35 @@
+.root {
+  background-color: #ffffff;
+}
+.imagePanel {
+  background-color: var(--paper-2);
+  background-size: cover;
+  background-position: center;
+  min-height: 120px;
+}
+
+.placeholderIcon {
+  color: var(--line);
+}
+.badge {
+  background-color: var(--ink);
+  color: #ffffff;
+}
+.eyebrow {
+  color: var(--ink);
+  opacity: 0.6;
+}
+.title {
+  color: var(--ink);
+}
+.description {
+  color: var(--ink);
+  opacity: 0.7;
+}
+.button {
+  background-color: var(--pine);
+  color: #ffffff;
+}
+.button:hover {
+  background-color: var(--moss);
+}

@@ -1,0 +1,116 @@
+.contenedorPrincipal {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--color-paper);
+    overflow-x: hidden;
+}
+
+.contenedorEncabezado {
+    margin: 2rem 5.5rem 0;
+}
+
+.tituloSeguimientoEnvio {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+}
+
+.referenciaPedido {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.65rem;
+    font-family: var(--font-body);
+}
+
+.referenciaPedido span {
+    font-weight: 700;
+}
+
+.referenciaPedido svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.botonCambiarPunto {
+    margin: 0 auto 2.5rem;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    background-color: white;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.botonCambiarPunto svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+    stroke-width: 3px;
+}
+
+.botonCambiarPunto:hover {
+    background-color: var(--color-paper-2);
+}
+
+@media (max-width: 1024px) {
+    .contenedorEncabezado {
+        margin: 2rem 3rem 0;
+    }
+
+    .tituloSeguimientoEnvio {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedorEncabezado {
+        margin: 1.5rem 1.5rem 0;
+    }
+
+    .tituloSeguimientoEnvio {
+        font-size: 1.8rem;
+    }
+
+    .referenciaPedido {
+        margin-top: 0.65rem;
+        font-size: 0.9rem;
+    }
+
+    .botonCambiarPunto {
+        width: calc(100% - 3rem);
+        max-width: 24rem;
+        margin-bottom: 2rem;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedorEncabezado {
+        margin: 1.25rem 1rem 0;
+    }
+
+    .tituloSeguimientoEnvio {
+        font-size: 1.6rem;
+    }
+
+    .referenciaPedido {
+        gap: 0.35rem 0.5rem;
+        font-size: 0.82rem;
+        line-height: 1.4;
+    }
+
+    .botonCambiarPunto {
+        width: calc(100% - 2rem);
+        padding: 0.7rem 0.85rem;
+        font-size: 0.85rem;
+    }
+}

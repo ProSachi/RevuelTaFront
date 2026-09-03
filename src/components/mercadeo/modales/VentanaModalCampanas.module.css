@@ -1,0 +1,21 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  color: var(--ink);
+}
+
+.body {
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+.btnCerrar {
+  background-color: var(--paper-2);
+  color: var(--ink);
+}
+
+.btnCerrar:hover {
+  background-color: var(--line);
+}
