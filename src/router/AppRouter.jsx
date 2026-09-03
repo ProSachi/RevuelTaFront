@@ -13,6 +13,7 @@ import PaginaDetalleProducto from "../pages/PaginaDetalleProducto"
 import Carrito from "../pages/Carrito"
 import Registro from "../pages/Registro"
 import MisTrueques from "../pages/MisTrueques"
+import PuntoAcopio from "../components/PuntoAcopio/PuntoAcopio"
 
 const AppRouter = () => {
     return (
@@ -29,6 +30,7 @@ const AppRouter = () => {
                     <Route path={RUTAS.SEGUIMIENTO_ENVIO} element={<SeguimientoEnvio />}/>
                     <Route path={RUTAS.CATALOGO} element={<Catalogo />}/>
                     <Route path={RUTAS.DETALLE_PRODUCTO} element={<PaginaDetalleProducto />}/>
+                    <Route path={RUTAS.PUNTO_ACOPIO} element={<PuntoAcopio />}/>
                 </Route>
                 <Route element={<AuthLayout />}>
                     <Route path={RUTAS.REGISTRO} element={<Registro />}/>

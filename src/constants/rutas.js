@@ -11,5 +11,6 @@ export const RUTAS = {
     REGISTRO: "/registro",
     INICIAR_SESION: "/iniciar-sesion",
     SEGUIMIENTO_ENVIO: "/seguimiento-envio",
-    RECUPERAR_CONTRASENA: "/recuperar-contrasena"
+    RECUPERAR_CONTRASENA: "/recuperar-contrasena",
+    PUNTO_ACOPIO: "/punto-acopio"
 }
