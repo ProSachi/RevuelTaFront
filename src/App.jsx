@@ -4,7 +4,6 @@ import TestModalResena from './components/TestModalResena'
 function App() {
   return (
     <ProveedorAutenticacion>
-
       <TestModalResena />
     </ProveedorAutenticacion>
   )
