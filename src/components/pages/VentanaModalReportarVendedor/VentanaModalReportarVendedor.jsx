@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import FormularioReporteVendedor from "../FormularioReportarVendedor/FormularioReporteVendedor";
 import styles from "./VentanaModalReportarVendedor.module.css";
 import { useConnectedUser } from "../../../context/ConnectedUser.context";
@@ -6,8 +7,10 @@ import { reportServices } from "../../../services/reportServices/resportServices
 import { garmentsServices } from "../../../services/garmentsServices/garmentsServices";
 import { motivos as listaMotivos } from "../../../data/motivosReporte";
 
-const VentanaModalReportarVendedor = ({ id, myProfile, vendedor, onCerrar, onReporteCreado }) => {
+const VentanaModalReportarVendedor = () => {
   const { connectedUser } = useConnectedUser();
+  const navigate = useNavigate();
+  const { id, myProfile, vendedor, onReporteCreado } = useOutletContext() || {};
   const currentUserId = connectedUser?.id
     || connectedUser?.Id
     || connectedUser?.idUsuario
@@ -22,6 +25,10 @@ const VentanaModalReportarVendedor = ({ id, myProfile, vendedor, onCerrar, onRep
   const [errorPrendas, setErrorPrendas] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [errores, setErrores] = useState({});
+
+  const onCerrar = () => {
+    navigate("..");
+  };
 
   useEffect(() => {
 
@@ -51,7 +58,7 @@ const VentanaModalReportarVendedor = ({ id, myProfile, vendedor, onCerrar, onRep
     if (id && currentUserId) {
       fetchGarments();
     }
-  }, [id, connectedUser, currentUserId, myProfile, onCerrar]);
+  }, [id, connectedUser, currentUserId, myProfile]);
 
   const handleEnviarReporte = async () => {
     const nuevosErrores = {};

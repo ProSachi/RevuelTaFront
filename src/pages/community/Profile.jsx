@@ -18,7 +18,6 @@ import { reportServices } from '../../services/reportServices/resportServices';
 import LoadingComunity from '../../components/profiles/loading/LoadingComunity';
 import MensajeError from '../../components/profiles/mensajeError/MensajeError';
 import imagenError from '../../assets/errorserver.jpeg';
-import VentanaModalReportarVendedor from '../../components/pages/VentanaModalReportarVendedor/VentanaModalReportarVendedor';
 
 const Profile = () => {
 
@@ -46,12 +45,6 @@ const Profile = () => {
     const [error, setError] = useState(false);
     const [average, setAverage] = useState(0);
     const [verified, setVerified] = useState(false);
-    const [modalReporteAbierto, setModalReporteAbierto] = useState(false);
-
-    const handleCerrarReporte = useCallback(() => {
-        setModalReporteAbierto(false);
-    }, []);
-
     const cargarReportes = useCallback(async () => {
         try {
             const reportData = await reportServices.getReportForReported(id);
@@ -147,6 +140,10 @@ const Profile = () => {
 
     return (
         <div className={styles.perfilPaginaWrapper}>
+
+            
+
+
             {/* Cabecera del perfil */}
             <div className={styles.cabeceraContenedor}>
                 <div className={styles.columnaIzquierda}>
@@ -200,7 +197,8 @@ const Profile = () => {
                                     nombre="Calificar"
                                 />
                                 <BotonPerfilNavegacion
-                                    onClick={() => setModalReporteAbierto(true)}
+                                    direccion="reportar"
+                                    state={{ backgroundLocation: location }}
                                     icono={FaExclamationTriangle}
                                     nombre="Reportar"
                                 />
@@ -225,19 +223,10 @@ const Profile = () => {
                 <div className={styles.seccionTabsBarraNav}>
                     <BotonPerfilNavegacion direccion="prendasPublicadas" state={""} icono={null} nombre={'Prendas Publicadas'} />
                     <BotonPerfilNavegacion direccion="resenas" state={""} icono={null} nombre={'Reseñas'} />
+                    <BotonPerfilNavegacion direccion="reportes" state={""} icono={null} nombre={'Reportes'} />
                 </div>
-                <Outlet context={{ id, myProfile }} />
+                <Outlet context={{ id, myProfile, vendedor: otherProfile, onReporteCreado: cargarReportes }} />
             </div>
-
-            {modalReporteAbierto && (
-                <VentanaModalReportarVendedor
-                    id={id}
-                    myProfile={myProfile}
-                    vendedor={otherProfile}
-                    onCerrar={handleCerrarReporte}
-                    onReporteCreado={cargarReportes}
-                />
-            )}
         </div>
     );
 };
