@@ -1,0 +1,168 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(21, 32, 27, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modalContenedor {
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalHeader {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-line);
+  background-color: var(--color-paper-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-pine);
+}
+
+.titulo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.nombreVendedor {
+  color: var(--color-clay);
+}
+
+.btnCerrar {
+  background-color: transparent;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.btnCerrar:hover {
+  background-color: var(--color-paper);
+  border-color: var(--color-ink);
+  color: var(--color-clay);
+}
+
+.modalBody {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modalFooter {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-line);
+  background-color: var(--color-paper-2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.mensajeError {
+  margin: 0.35rem 0 0;
+  color: #a44831;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.btnCancelar {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  background-color: transparent;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnCancelar:hover {
+  background-color: var(--color-paper);
+  border-color: #beb4a0;
+}
+
+.btnEnviar {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-clay);
+  border: 1.5px solid var(--color-clay);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(232, 100, 60, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.btnEnviar:hover {
+  background-color: #d3552f;
+  border-color: #d3552f;
+  box-shadow: 0 4px 12px rgba(232, 100, 60, 0.35);
+  transform: translateY(-1px);
+}
+
+.btnEnviar:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

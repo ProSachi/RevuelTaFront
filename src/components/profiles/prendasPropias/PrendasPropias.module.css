@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
 
 /* Área contenedora principal */
 .seccionTabsAreaContenido {
@@ -6,7 +6,7 @@
   background-color: #EFE9DC; /* Blanco hueso de la paleta RevueLTa */
   border: 1px solid #E2E8F0;
   border-radius: 0.875rem;
-  padding: 0.875rem; /* Padding reducido para aprovechar pantalla en móvil */
+  padding: 0.875rem;
   box-sizing: border-box;
   font-family: 'Plus Jakarta Sans', sans-serif;
   box-shadow: 0 1px 3px rgba(18, 18, 18, 0.03);
@@ -15,15 +15,13 @@
 /* Grilla de prendas responsiva y fluida */
 .seccionTabsGridPrendas {
   display: grid;
-  /* En móvil: 1 columna centrada */
   grid-template-columns: 1fr;
   gap: 1rem;
-  justify-items: center; /* Centra las tarjetas cuando hay 1 sola columna */
+  justify-items: center;
   align-items: start;
   width: 100%;
 }
 
-/* Dispositivos pequeños/medianos (móviles horizontales y tablets pequeñas >= 480px) */
 @media (min-width: 480px) {
   .seccionTabsAreaContenido {
     padding: 1rem;
@@ -31,12 +29,11 @@
 
   .seccionTabsGridPrendas {
     grid-template-columns: repeat(2, 1fr);
-    justify-items: start; /* Alineación natural a la izquierda desde 2 columnas */
+    justify-items: start;
     gap: 1.125rem;
   }
 }
 
-/* Tablets grandes y Laptops (>= 768px) */
 @media (min-width: 768px) {
   .seccionTabsAreaContenido {
     border-radius: 1rem;
@@ -49,9 +46,91 @@
   }
 }
 
-/* Pantallas grandes y Monitores (>= 1100px) */
 @media (min-width: 1100px) {
   .seccionTabsGridPrendas {
-    grid-template-columns: repeat(4, 1fr); /* Expande a 4 columnas en pantallas anchas */
+    grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* Estilos para el estado de carga (Loading) */
+.cargandoTexto {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1F5E4A;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Contenedor para el estado sin prendas (Vacío) */
+.seccionVacia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.seccionVacia h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #121212;
+  margin: 0;
+}
+
+/* Contenedor principal de error en sección vacía */
+.seccionErrorIntegrado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.25rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Círculo contenedor del ícono con verde tenue de la paleta */
+.iconoAlertaArea {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: rgba(31, 94, 74, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.iconoAlerta {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #1F5E4A; /* Verde primario RevueLTa */
+}
+
+/* Título con tipografía Outfit */
+.tituloErrorIntegrado {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #121212;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+/* Mensaje explicativo con Plus Jakarta Sans */
+.mensajeErrorIntegrado {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: #64748B;
+  margin: 0 0 1.5rem 0;
+  max-width: 380px;
+  line-height: 1.5;
 }

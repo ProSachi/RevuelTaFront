@@ -1,0 +1,119 @@
+.formularioCampos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.grillaDosColumnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .grillaDosColumnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.campoGrupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campoGrupoCorto {
+  width: 50%;
+  max-width: 280px;
+}
+
+@media (max-width: 640px) {
+  .campoGrupoCorto {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.labelCampo {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-ink, #15201b);
+}
+
+.asterisco {
+  color: var(--color-clay, #e8643c);
+  margin-left: 0.2rem;
+}
+
+.subtituloCampo {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.775rem;
+  color: #6d7b74;
+}
+
+.inputTexto,
+.selectCampo {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--color-line, #ded6c5);
+  border-radius: var(--radius-md, 8px);
+  background-color: var(--color-white, #ffffff);
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.9rem;
+  color: var(--color-ink, #15201b);
+  outline: none;
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.inputTexto:focus,
+.selectCampo:focus {
+  border-color: var(--color-pine, #1f5e4a);
+  box-shadow: 0 0 0 3px rgba(31, 94, 74, 0.12);
+}
+
+.inputTexto::placeholder {
+  color: #9aa5a0;
+  font-size: 0.85rem;
+}
+
+.contenedorPrecio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.simboloPrecio {
+  position: absolute;
+  left: 0.9rem;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #55635b;
+  pointer-events: none;
+}
+
+.inputPrecio {
+  width: 100%;
+  padding: 0.75rem 0.9rem 0.75rem 2rem;
+  border: 1.5px solid var(--color-line, #ded6c5);
+  border-radius: var(--radius-md, 8px);
+  background-color: var(--color-white, #ffffff);
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.9rem;
+  color: var(--color-ink, #15201b);
+  outline: none;
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.inputPrecio:focus {
+  border-color: var(--color-pine, #1f5e4a);
+  box-shadow: 0 0 0 3px rgba(31, 94, 74, 0.12);
+}
+
+.inputPrecio::placeholder {
+  color: #9aa5a0;
+  font-size: 0.85rem;
+}

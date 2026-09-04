@@ -1,5 +1,6 @@
 import { ArrowLeftRight, PackageOpen, Tag, UserRound } from "lucide-react";
 import { RUTAS } from "../../../../../constants/rutas";
+import { ConnectedUserProvider } from "../../../../../context/ConnectedUser.context";
 
 const opcionesMenuPerfil = [
     {id: "perfil", texto: "Mi Perfil", Icono: UserRound, ruta: RUTAS.PERFIL},

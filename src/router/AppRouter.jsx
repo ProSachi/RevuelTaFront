@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import MainLayout from "../layouts/MainLayout"
 import { RUTAS } from "../constants/rutas"
 import AuthLayout from "../layouts/AuthLayout"
@@ -13,14 +13,25 @@ import PaginaDetalleProducto from "../pages/PaginaDetalleProducto"
 import Carrito from "../pages/Carrito"
 import Registro from "../pages/Registro"
 import MisTrueques from "../pages/MisTrueques"
-
+import Profile from "../pages/community/Profile"
+import PrendasPropias from "../components/profiles/prendasPropias/PrendasPropias"
+import ResenasPropias from "../components/profiles/ResenasPropias/ResenasPropias"
+import ReportesPropios from "../components/profiles/reportesPropios/ReportesPropios"
+import VentanaModalReportarVendedor from "../components/pages/VentanaModalReportarVendedor/VentanaModalReportarVendedor"
 const AppRouter = () => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route element={<MainLayout />}>
+        <Routes>
+            <Route element={<MainLayout />}>
+                    <Route index element={< Landing />}/>
                     <Route path={RUTAS.LANDING_PAGE} element={< Landing />}/>
-                    <Route path={RUTAS.PERFIL} element={null}/>
+                    <Route path={`${RUTAS.PERFIL}/:id/*`} element={<Profile />}>
+                        <Route index element={<PrendasPropias />} />
+                        <Route path="prendasPublicadas" element={<PrendasPropias />} />
+                        <Route path="resenas" element={<ResenasPropias />} />
+                        <Route path="reportes" element={<ReportesPropios />} />
+                        <Route path="reportar" element={<VentanaModalReportarVendedor />} />
+                        <Route path="*" element={<PrendasPropias />} />
+                    </Route>
                     <Route path={RUTAS.PEDIDOS} element={<MisPedidos />}/>
                     <Route path={RUTAS.TRUEQUES} element={<MisTrueques />}/>
                     <Route path={RUTAS.CAMPANAS_DESCUENTOS} element={<DescuentosCampanas />} />
@@ -38,7 +49,6 @@ const AppRouter = () => {
                     <Route path={RUTAS.RECUPERAR_CONTRASENA} element={<RecuperarContrasenaPage />} />
                 </Route>
             </Routes>
-        </BrowserRouter>
     )
 }
 

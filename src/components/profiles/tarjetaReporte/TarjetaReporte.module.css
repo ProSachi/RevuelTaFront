@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+.tarjeta {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.875rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:active {
+  transform: scale(0.99);
+}
+
+/* Cabecera limpia */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 0.625rem;
+}
+
+.motivoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconoAlerta {
+  color: #DC2626; /* Rojo de advertencia */
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.titulo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #121212;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.fecha {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: #64748B;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.iconoFecha {
+  font-size: 0.75rem;
+}
+
+/* Comentario/Cuerpo */
+.contenido {
+  display: flex;
+  flex-direction: column;
+}
+
+.comentario {
+  font-size: 0.825rem;
+  color: #334155;
+  margin: 0;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* Badges y Etiquetas en el Footer */
+.footerDetalles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+
+.badgeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 2rem;
+  text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Variaciones de Estado */
+.resuelto, .atendido {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+.pendiente, .revision {
+  background-color: #FEF9C3;
+  color: #A16207;
+}
+
+.rechazado, .cancelado {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+}
+
+.estadoDefault {
+  background-color: #F1F5F9;
+  color: #475569;
+}
+
+/* Variaciones de Prioridad */
+.prioridad_alta {
+  background-color: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
+.prioridad_media {
+  background-color: #FFEDD5;
+  color: #C2410C;
+}
+
+.prioridad_baja {
+  background-color: #F0FDF4;
+  color: #166534;
+}
+
+.prioridadDefault {
+  background-color: #F8FAFC;
+  color: #64748B;
+}
+
+/* Escritorio (>= 640px) */
+@media (min-width: 640px) {
+  .tarjeta {
+    padding: 1.125rem;
+    gap: 0.875rem;
+  }
+
+  .titulo {
+    font-size: 1rem;
+  }
+
+  .comentario {
+    font-size: 0.875rem;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(18, 18, 18, 0.06);
+    }
+  }
+}

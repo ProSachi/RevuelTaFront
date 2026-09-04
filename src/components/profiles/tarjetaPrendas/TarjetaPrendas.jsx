@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { HiPencil } from 'react-icons/hi2';
 import styles from './TarjetaPrendas.module.css';
 import BotonPerfilNavegacion from '../botonNavecionPerfil/BotonPerfilNavegacion';
@@ -19,7 +19,7 @@ const TarjetaPrendas = ({ imagen, titulo, precio, talla, id, usuarioLogueado }) 
           <div className={styles.botonFlotante}>
             <BotonPerfilNavegacion
               nombre="Editar"
-              direccion={`/prendas/editar/${id}`}
+              direccion={`prendas/editar`}
               icono={HiPencil}
               colorActivo="#1F5E4A"
             />
@@ -60,13 +60,13 @@ const TarjetaPrendas = ({ imagen, titulo, precio, talla, id, usuarioLogueado }) 
         <div className={styles.acciones}>
           <BotonPerfilNavegacion
             nombre=""
-            direccion={`/comprar/${id}`}
+            direccion={`prendas/comprar`}
             icono={FaShoppingCart}
             colorActivo="#1F5E4A"
           />
           <BotonPerfilNavegacion
             nombre=""
-            direccion={`/trueque/${id}`}
+            direccion={`prendas/trueque`}
             icono={HiOutlineSwitchHorizontal}
             colorActivo="#1F5E4A"
           />

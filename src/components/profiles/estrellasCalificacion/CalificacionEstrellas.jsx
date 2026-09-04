@@ -1,4 +1,3 @@
-
 import { FaStar } from 'react-icons/fa';
 import styles from './CalificacionEstrellas.module.css';
 

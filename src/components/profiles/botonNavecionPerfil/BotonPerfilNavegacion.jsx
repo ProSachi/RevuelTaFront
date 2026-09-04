@@ -1,36 +1,49 @@
-
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './BotonPerfilNavegacionEstilo.module.css';
 
 const BotonPerfilNavegacion = ({ 
   direccion, 
-  icono, 
+  icono: IconComponent, 
   nombre, 
+  onClick,
   colorBase = '#FFFFFF', 
   colorActivo = '#1F5E4A',
   colorTextoBase = '#121212',
-  colorTextoActivo = '#FFFFFF'
+  colorTextoActivo = '#FFFFFF',
+  state
 }) => {
-  const IconComponent = icono;
-
-  // Inyectamos las variables CSS inline para consumirlas en el módulo CSS
-  const estilosDinamicos = {
-    '--bg-base': colorBase,
-    '--bg-activo': colorActivo,
-    '--text-base': colorTextoBase,
-    '--text-activo': colorTextoActivo,
-  };
+  if (onClick) {
+    return (
+      <div>
+        <button
+          type="button"
+          onClick={onClick}
+          className={styles.boton}
+        >
+          {IconComponent && <IconComponent className={styles.icono} />}
+          <span>{nombre}</span>
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <Link
+      <NavLink
         to={direccion}
-        className={styles.boton}
-        style={estilosDinamicos}
+        state={state}
+        // Usamos la función de estilo de NavLink para alternar colores según el estado activo
+        style={({ isActive }) => ({
+          '--bg-actual': isActive ? colorActivo : colorBase,
+          '--text-actual': isActive ? colorTextoActivo : colorTextoBase,
+        })}
+        className={({ isActive }) => 
+          `${styles.boton} ${isActive ? styles.activo : ''}`
+        }
       >
         {IconComponent && <IconComponent className={styles.icono} />}
         <span>{nombre}</span>
-      </Link>
+      </NavLink>
     </div>
   );
 };
